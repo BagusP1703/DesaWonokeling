@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/icon/nm.png" type="image/x-icon" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Jonsuh -->
+    <link rel="stylesheet" href="../src/dist/css/hamburgers.css" />
+
+    <!-- Animate Style -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/dist/css/output.css" />
+    <title>Tailwind CSS</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar px-4 py-3" id="beranda">
+      <div class="container mx-auto">
+        <div class="navbar-box flex items-center justify-between">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="assets/Tailwind.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12"
+            />
+            <h1 class="font-bold md:text-2xl text-xl">Desaku</h1>
+          </div>
+          <ul
+            class="menu flex gap-x-7 items-center font-bold md:static absolute top-24 z-10 left-0 md:flex-row flex-col bg-teal-600 w-full md:bg-transparent md:w-auto"
+          >
+            <li class="py-4 w-full text-center">
+              <a href="#beranda" class="hover:text-teal-500">Beranda</a>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#tentang" class="hover:text-teal-500">Tentang</a>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#wisata" class="hover:text-teal-500">Wisata</a>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#galeri" class="hover:text-teal-500">Galei</a>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#kontak" class="hover:text-teal-500">Kontak</a>
+            </li>
+            <div class="opacity-50 md:block hidden">|</div>
+            <i
+              class="fa-brands fa-github text-4xl md:block hidden cursor-pointer hover:text-teal-600"
+            ></i>
+          </ul>
+          <div class="md:hidden block">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before: before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+
+    <!-- Header -->
+    <div class="header min-h-screen flex items-center">
+      <div class="container mx-auto px-4">
+        <div class="header box flex lg:flex-row flex-col items-center gap-10">
+          <div
+            class="box lg:w-1/2 w-full lg:order-1 order-2 lg:justify-items-start justify-items-center"
+          >
+            <h1
+              class="text-slate-900 font-extrabold md:text-4xl md:leading-normal sm:leading-normal sm:text-3xl text-2xl mb-4 leading-normal lg:text-left text-center animate__animated animate__fadeInUp animate__delay-1s"
+              style="animation-delay: 0.8s"
+            >
+              Penghijauan, Menciptakan Generasi yang Cerah di Masa Mendatang
+            </h1>
+            <p
+              class="mb-4 text-slate-600 md:text-base md:leading-loose sm:leading-loose sm:text-sm text-xs leading-loose lg:text-left text-center animate__animated animate__fadeInUp animate__delay-1s"
+              style="animation-delay: 1s"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              dignissimos voluptatum eos. Sed ipsa eos ratione nihil incidunt
+              illum ducimus ipsam, omnis rem quae iste, doloremque fugiat libero
+              hic consectetur.
+            </p>
+            <button
+              class="w-48 h-12 bg-teal-500 rounded font-bold text-white hover:bg-teal-600 animate__animated animate__fadeInUp animate__delay-1s"
+              style="animation-delay: 1.4s"
+            >
+              Tentang Kami <i class="fa-solid fa-question ml-1"></i>
+            </button>
+          </div>
+          <div
+            class="box w-1/2 lg:order-2 order-1 sm:-mt-10 -mt-20 animate__animated animate__fadeInUp animate__delay-1s"
+            style="animation-delay: 0.4s"
+          >
+            <img
+              src="assets/image/hero.svg"
+              alt="undraw.co"
+              class="xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[250px] block ml-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header -->
+
+    <!--Tentang  -->
+    <div class="tentang py-32" id="tentang">
+      <div class="container mx-auto px-4">
+        <div class="tentang-box">
+          <div class="box text-center">
+            <h1
+              class="font-extrabold text-4xl mb-8"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              About Us
+            </h1>
+            <p
+              class="lg:w-3/4 w-full md:leading-loose mx-auto md:text-base sm:leading-loose leading-loose sm:text-xs text-xs"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay="200"
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+              commodi? Porro error doloremque enim praesentium culpa deserunt,
+              accusamus minus accusantium modi nesciunt sed rerum dolorem ipsam
+              minima similique. Illum, laboriosam?
+            </p>
+          </div>
+          <div class="box pt-16">
+            <img
+              src="assets/image/about1.svg"
+              alt="Tentang Desa"
+              class="md:w-[600px] w-[400px] mx-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Tentang  -->
+
+    <!-- Wisata -->
+    <div class="wisata py-32" id="wisata">
+      <div class="container mx-auto px-4">
+        <div class="wisata-box">
+          <div class="box text-center">
+            <h1
+              class="font-extrabold text-4xl mb-6"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Wisata
+            </h1>
+            <p
+              class="lg:w-3/4 w-full md:leading-loose mx-auto md:text-base sm:leading-loose leading-loose sm:text-sm text-xs"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay="200"
+            >
+              > Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Doloribus quam aperiam voluptas magni omnis. Quia perferendis hic
+              quaerat sit quos?
+            </p>
+          </div>
+          <div
+            class="box grid md:grid-cols-2 grid-cols-1 gap-16 pt-16 items-center"
+          >
+            <img
+              src="assets/image/services.svg"
+              alt="Wisata"
+              class="w-[450px] md:justify-self-end justify-self-center"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="400"
+            />
+            <div
+              class="desc md:justify-self-start justify-self-center"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              data-aos-delay="400"
+            >
+              <p class="flex items-center gap-4 text-xl font-bold mb-6">
+                <i class="fa-solid fa-circle-check text-4xl text-teal-600"></i
+                >Taman Indah
+              </p>
+              <p class="flex items-center gap-4 text-xl font-bold mb-6">
+                <i class="fa-solid fa-circle-check text-4xl text-teal-600"></i
+                >Danau Besar
+              </p>
+              <p class="flex items-center gap-4 text-xl font-bold mb-6">
+                <i class="fa-solid fa-circle-check text-4xl text-teal-600"></i
+                >Pohon hijau
+              </p>
+              <p class="flex items-center gap-4 text-xl font-bold mb-6">
+                <i class="fa-solid fa-circle-check text-4xl text-teal-600"></i
+                >sungai Deras
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Wisata -->
+    <!-- Galeri -->
+    <div class="Galeri py-32" id="galeri">
+      <div class="container mx-auto px-4">
+        <div class="galeri-box">
+          <div class="box text-center">
+            <h1
+              class="font font-extrabold text-4xl mb-6"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Galeri
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe,
+              minima!
+            </p>
+          </div>
+          <div
+            class="box flex items-center justify-center gap-4 flex-wrap pt-12"
+          >
+            <div
+              class="p-16 bg-teal-100 text-center"
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              data-aos-delay="300"
+            >
+              <h1 class="text-4xl font-bold mb-2">500+</h1>
+              <p>Wisatawan Berkunjung</p>
+            </div>
+            <div
+              class="p-16 bg-teal-500 text-center"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay="500"
+            >
+              <h1 class="text-4xl font-bold mb-2">10+</h1>
+              <p>Destinasi Wisata</p>
+            </div>
+            <div
+              class="p-16 bg-teal-100 text-center"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              data-aos-delay="400"
+            >
+              <h1 class="text-4xl font-bold mb-2">50+</h1>
+              <p>Homestay atau Penginapan</p>
+            </div>
+          </div>
+          <div
+            class="box flex justify-center items-center flex-wrap gap-4 pt-16"
+          >
+            <img
+              src="assets/image/services1.jpg"
+              alt="unsplash.com"
+              class="w-[300px] h-[250px]"
+            />
+            <img
+              src="assets/image/services2.jpg"
+              alt="unsplash.com"
+              class="w-[300px] h-[250px]"
+            />
+            <img
+              src="assets/image/services3.jpg"
+              alt="unsplash.com"
+              class="w-[300px] h-[250px]"
+            />
+            <img
+              src="assets/image/services4.jpg"
+              alt="unsplash.com"
+              class="w-[300px] h-[250px]"
+            />
+            <img
+              src="assets/image/services5.jpg"
+              alt="unsplash.com"
+              class="w-[300px] h-[250px]"
+            />
+            <img
+              src="assets/image/services6.jpg"
+              alt="unsplash.com"
+              class="w-[300px] h-[250px]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Galeri -->
+
+    <!-- Kontak -->
+    <div class="kontak py-32" id="kontak">
+      <div class="container mx-auto px-4">
+        <div class="kontak-box">
+          <div class="box text-center">
+            <h1
+              class="font-extrabold text-4xl mb-6"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              Kontak
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="1000">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime,
+              architecto.
+            </p>
+          </div>
+          <form
+            action="https://formsubmit.co/bagusprayogo241@gmail.com"
+            method="post"
+            class="mt-10"
+          >
+            <table class="mx-auto lg:w-3/5 w-3/4">
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="Nama Lengkap"
+                    placeholder="Nama Lengkap...."
+                    autocomplete="off"
+                    required
+                    class="w-full h-1/2 rounded-md border p-3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="email"
+                    name="Email"
+                    placeholder="Email Anda...."
+                    autocomplete="off"
+                    required
+                    class="w-full h-1/2 rounded-md border p-3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <textarea
+                    name="Pesan"
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Pesan...."
+                    autocomplete="off"
+                    required
+                    class="w-full h-1/2 rounded-md border p-3"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    type="submit"
+                    class="w-40 h-10 bg-teal-500 ml-auto block font-bold rounded hover:bg-teal-600"
+                  >
+                    kirim
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Kontak -->
+    <!-- Footer -->
+    <div class="footer py-12 bg-slate-900 text-white">
+      <div class="container mx-auto px-4">
+        <div
+          class="footer-box flex justify-around lg:flex-row flex-col lg:gap-0 gap-10"
+        >
+          <div class="box lg:w-[500px]">
+            <div class="logo flex items-center gap-2">
+              <img
+                src="assets/Tailwind.png"
+                alt="Logo Tailwind CSS"
+                class="w-16"
+              />
+              <h1 class="font-bold text-2xl">Desaku</h1>
+            </div>
+            <div class="desc">
+              <p class="opacity-50 text-base leading-loose">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Tempore dignissimos porro vel, possimus eos reprehenderit
+                maiores nam architecto distinctio animi.
+              </p>
+            </div>
+          </div>
+          <div class="box flex flex-col lg:w-[100px] gap-2">
+            <h4 class="font-bold text-lg">Menu</h4>
+            <a href="#beranda" class="opacity-50 hover:opacity-100">Beranda</a>
+            <a href="#tentang" class="opacity-50 hover:opacity-100">Tentang</a>
+            <a href="#wisata" class="opacity-50 hover:opacity-100">Wisata</a>
+            <a href="#galeri" class="opacity-50 hover:opacity-100">Galeri</a>
+            <a href="#kontak" class="opacity-50 hover:opacity-100">Kontak</a>
+          </div>
+          <div class="box flex flex-col lg:w-[200px] gap-2">
+            <h4 class="font-bold text-lg">Company</h4>
+            <a href="#" class="opacity-50 hover:opacity-100"
+              >Terms Of Services</a
+            >
+            <a href="#" class="opacity-50 hover:opacity-100">Privacy Policy</a>
+            <a href="#" class="opacity-50 hover:opacity-100">Blog</a>
+            <a href="#" class="opacity-50 hover:opacity-100">Cookies Setting</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+
+    <!-- Button Back To Top -->
+    <a href="#home">
+      <i
+        id="scrollTopBtn"
+        class="fa-solid fa-circle-arrow-up fixed bottom-10 right-10 text-5xl text-teal-500 cursor-pointer hover:text-teal-600 z-20"
+        title="Kembali ke Atas"
+        onclick="window.scrollTo({top:0, behavior:'smooth'})"
+      ></i>
+      <script>
+        window.addEventListener("scroll", function () {
+          const scrollButton = document.getElementById("scrollTopBtn");
+          if (window.scrollY > 300) {
+            scrollButton.classList.remove("hidden");
+          } else {
+            scrollButton.classList.add("hidden");
+          }
+        });
+      </script>
+    </a>
+    <!-- Button Back To Top -->
+    <!-- JS -->
+    <script src="../src/dist/js/script.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../src/dist/css/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Blog Post</title>
+
+    <style>
+      .navbar:hover {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          1
+        ); /* Latar belakang hitam 60% transparan saat hover */
+      }
+
+      .navbar.visible {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          1
+        ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900" id="beranda">
+    <!-- Back to Home Button -->
+
+    <!-- Header -->
+    <!-- Navbar -->
+    <div
+      class="navbar px-4 fixed bg-black/0 w-full z-40 top-0 h-[80px] content-center transition duration-500 ease-in-out"
+      id="navbar"
+    >
+      <div class="container mx-auto justify-center">
+        <div class="navbar-box flex items-center justify-between relative">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="../assets/image/karanganyar logo.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12"
+            />
+            <div class="flex flex-col">
+              <h1 class="font-bold md:text-base text-sm text-white">
+                Desa Wonokeling
+              </h1>
+              <p class="text-gray-100 sm:text-sm text-xs">
+                Kec. Jatiyoso, Kab. karanganyar
+              </p>
+            </div>
+          </div>
+          <ul
+            class="menu hidden md:flex gap-x-7 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            id="menu"
+          >
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index - Copy.html"
+                class="text-white hover:text-teal-500"
+                >Beranda</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownTentangButton"
+                data-dropdown-toggle="dropdownTentang"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-5 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Tentang<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index - Copy.html#berita"
+                class="text-white hover:text-teal-500"
+                >Berita</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index - Copy.html#wisata"
+                class="text-white hover:text-teal-500"
+                >Wisata</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index - Copy.html#galeri"
+                class="text-white hover:text-teal-500"
+                >Galeri</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index - Copy.html#kontak"
+                class="text-white hover:text-teal-500"
+                >Kontak</a
+              >
+            </li>
+            <div class="opacity-50 text-white md:block hidden">|</div>
+            <i
+              class="text-white fa-brands fa-github text-4xl md:block hidden cursor-pointer hover:text-teal-600"
+            ></i>
+          </ul>
+          <div class="md:hidden block z-50">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Dropdown menu -->
+    <div
+      id="dropdownTentang"
+      class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownTentangButton"
+      >
+        <li>
+          <a
+            href="../index - Copy.html#tentang"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sekilas Desa</a
+          >
+        </li>
+        <li>
+          <button
+            id="DoubledropdownButton"
+            data-dropdown-toggle="Doubledropdown"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Profile<svg
+              class="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="Doubledropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80"
+          >
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="DoubledropdownButton"
+            >
+              <li>
+                <a
+                  href="../tentang/profile.html"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Kepala Desa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Statistik Penduduk</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Menu Dropdown -->
+
+    <!-- Header -->
+    <header class="relative h-screen bg-cover bg-center bg-fixed">
+      <!-- Carousel -->
+      <div
+        id="carouselExampleCaptions"
+        class="relative h-full"
+        data-twe-carousel-init
+        data-twe-ride="carousel"
+      >
+        <!-- Carousel indicators -->
+        <div
+          class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex justify-center p-0"
+          data-twe-carousel-indicators
+        >
+          <button
+            type="button"
+            data-twe-target="#carouselExampleCaptions"
+            data-twe-slide-to="0"
+            data-twe-carousel-active
+            class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-twe-target="#carouselExampleCaptions"
+            data-twe-slide-to="1"
+            class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-twe-target="#carouselExampleCaptions"
+            data-twe-slide-to="2"
+            class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+            aria-label="Slide 3"
+          ></button>
+          <button
+            type="button"
+            data-twe-target="#carouselExampleCaptions"
+            data-twe-slide-to="3"
+            class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+            aria-label="Slide 4"
+          ></button>
+          <button
+            type="button"
+            data-twe-target="#carouselExampleCaptions"
+            data-twe-slide-to="4"
+            class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+            aria-label="Slide 5"
+          ></button>
+        </div>
+
+        <!-- Carousel items -->
+        <div
+          class="relative h-full w-full overflow-hidden after:clear-both after:block after:content-['']"
+        >
+          <!-- Item 1 -->
+          <div
+            class="relative float-left -mr-[100%] h-full w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-twe-carousel-active
+            data-twe-carousel-item
+            style="backface-visibility: hidden"
+          >
+            <img
+              src="../assets/image/pemandangan.jpg"
+              class="block w-full h-full object-cover"
+              alt="Wisata 1"
+            />
+            <!-- Overlay dan teks -->
+            <div
+              class="absolute inset-0 bg-black/40 flex items-center justify-center"
+            >
+              <div class="text-center text-white">
+                <h1 class="text-5xl font-bold mb-4 font-delicious">
+                  Destinasi Wisata
+                </h1>
+                <p class="text-lg">Nikmati keindahan Alam di desa Wonokeling</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div
+            class="relative float-left -mr-[100%] hidden h-full w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-twe-carousel-item
+            style="backface-visibility: hidden"
+          >
+            <img
+              src="../assets/image/muncar.jpg"
+              class="block w-full h-full object-cover"
+              alt="Wisata 2"
+            />
+            <div
+              class="absolute inset-0 bg-black/50 flex items-center justify-center"
+            >
+              <div
+                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+              >
+                <h5 class="text-4xl font-delicious">Candi Muncar</h5>
+                <p>
+                  Tempat wisata Candi Muncar menyuguhkan keasrian alam yang
+                  menenangkan. Udara sejuk dan segar di sekitar telaga mampu
+                  mengusir rasa lelah dan penat rutinitas keseharian.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div
+            class="relative float-left -mr-[100%] hidden h-full w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-twe-carousel-item
+            style="backface-visibility: hidden"
+          >
+            <img
+              src="../assets/image/tegal simbah (1).jpg"
+              class="block w-full h-full object-cover"
+              alt="Wisata 3"
+            />
+            <div
+              class="absolute inset-0 bg-black/50 flex items-center justify-center"
+            >
+              <div
+                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+              >
+                <h5 class="text-4xl font-delicious">Tegal Simbah</h5>
+                <p>
+                  Wisata yang berada di kawasan dataran tinggi Girimarto ini
+                  menawarkan udara sejuk dan juga pemandangan yang cocok untuk
+                  lokasi liburan keluarga,
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div
+            class="relative float-left -mr-[100%] hidden h-full w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-twe-carousel-item
+            style="backface-visibility: hidden"
+          >
+            <img
+              src="../assets/image/banyuanyep.jpg"
+              class="block w-full h-full object-cover"
+              alt="Wisata 3"
+            />
+            <div
+              class="absolute inset-0 bg-black/50 flex items-center justify-center"
+            >
+              <div
+                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+              >
+                <h5 class="text-4xl font-delicious">Banyu Anyep Cafe</h5>
+                <p>
+                  Terletak di lereng Gunung Lawu Selatan, kafe ini menawarkan
+                  pemandangan perbukitan hijau dan udara pegunungan yang segar.
+                  Tempat ini menjadi tempat favorit untuk berkumpul bersama
+                  teman, keluarga, atau pasangan, dengan suasana yang sejuk dan
+                  santai.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div
+            class="relative float-left -mr-[100%] hidden h-full w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+            data-twe-carousel-item
+            style="backface-visibility: hidden"
+          >
+            <img
+              src="../assets/image/rumahpohon (1).jpg"
+              class="block w-full h-full object-cover"
+              alt="Wisata 3"
+            />
+            <div
+              class="absolute inset-0 bg-black/50 flex items-center justify-center"
+            >
+              <div
+                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+              >
+                <h5 class="text-4xl font-delicious">Rumah Pohon Tugulasi</h5>
+                <p>
+                  destinasi wisata populer yang menawarkan spot selfie menarik
+                  dengan rumah pohon bambu berlatar belakang pemandangan alam
+                  yang hijau. Dengan tiket masuk terjangkau, pengunjung dapat
+                  menikmati keindahan alam dari ketinggian, serta mengabadikan
+                  momen dalam foto-foto yang menarik
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tombol navigasi -->
+        <button
+          class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+          type="button"
+          data-twe-target="#carouselExampleCaptions"
+          data-twe-slide="prev"
+        >
+          <span class="inline-block h-8 w-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+          </span>
+          <span
+            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+            >Previous</span
+          >
+        </button>
+        <button
+          class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+          type="button"
+          data-twe-target="#carouselExampleCaptions"
+          data-twe-slide="next"
+        >
+          <span class="inline-block h-8 w-8">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-6 w-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </span>
+          <span
+            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+            >Next</span
+          >
+        </button>
+      </div>
+    </header>
+
+    <!-- Header -->
+
+    <!-- Back to home -->
+    <div class="container mx-auto px-6 py-4 mt-[40px]">
+      <a
+        href="../index - Copy.html"
+        class="text-blue-500 hover:text-blue-700 hover:underline"
+        >← Back to Home</a
+      >
+    </div>
+
+    <!-- Destinasi -->
+    <div class="flex flex-row flex-wrap h-auto px-6">
+      <div
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto grow p-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <div class="group-hover:shadow-xl border border-gray-400">
+          <div
+            class="box-gambar relative p-2 h-56 w-full bg-cover bg-center hover:scale-105 hover:shadow-sm transition ease-in-out duration-300 cursor-pointer"
+            style="background-image: url('../assets/image/muncar.jpg')"
+          ></div>
+          <div
+            class="flex flex-col justify-between -mt-4 px-4 py-6 bg-white hover:z-50 hover:relative transition ease-in-out duration-300"
+          >
+            <h1
+              class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
+            >
+              Candi Muncar
+            </h1>
+            <p class="text-center leading-normal text-gray-700 line-clamp-3">
+              Tempat wisata Candi Muncar menyuguhkan keasrian alam yang
+              menenangkan. Udara sejuk dan segar di sekitar telaga mampu
+              mengusir rasa lelah dan penat rutinitas keseharian.
+            </p>
+            <div class="div items-center flex justify-center">
+              <a
+                href="#"
+                class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Selengkapnya-> <i class="fa-solid ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto grow px-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="400"
+      >
+        <div class="group-hover:shadow-xl border border-gray-400 h-full">
+          <div
+            class="box-gambar relative p-2 h-56 w-full bg-cover bg-center hover:scale-105 hover:shadow-sm transition ease-in-out duration-300 cursor-pointer"
+            style="
+              background-image: url('../assets/image/tegal\ simbah\ \(1\).jpg');
+            "
+          ></div>
+          <div
+            class="flex flex-col justify-between -mt-4 px-4 py-6 bg-white hover:z-50 hover:relative transition ease-in-out duration-500"
+          >
+            <h1
+              class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer transition ease-in-out divide-neutral-500"
+            >
+              Tegal Simbah
+            </h1>
+            <p class="text-center leading-normal text-gray-700 line-clamp-3">
+              Wisata yang berada di kawasan dataran tinggi Girimarto ini
+              menawarkan udara sejuk dan juga pemandangan yang cocok untuk
+              lokasi liburan keluarga.
+            </p>
+            <div class="div items-center flex justify-center">
+              <a
+                href="#"
+                class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Selengkapnya-> <i class="fa-solid ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto px-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="800"
+      >
+        <div class="group-hover:shadow-xl border border-gray-400">
+          <div
+            class="box-gambar relative p-2 h-56 w-full bg-cover bg-center hover:scale-105 hover:shadow-sm transition ease-in-out duration-300 cursor-pointer"
+            style="background-image: url('../assets/image/banyuanyep.jpg')"
+          ></div>
+          <div
+            class="flex flex-col justify-between -mt-4 px-4 py-6 bg-white hover:z-50 hover:relative transition ease-in-out duration-300"
+          >
+            <h1
+              class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
+            >
+              Banyu Anyep Cafe
+            </h1>
+            <p class="text-center leading-normal text-gray-700 line-clamp-3">
+              Terletak di lereng Gunung Lawu Selatan, kafe ini menawarkan
+              pemandangan perbukitan hijau dan udara pegunungan yang segar.
+              Tempat ini menjadi tempat favorit untuk berkumpul bersama teman,
+              keluarga, atau pasangan, dengan suasana yang sejuk dan santai.
+            </p>
+            <div class="div items-center flex justify-center">
+              <a
+                href="#"
+                class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Selengkapnya-> <i class="fa-solid ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto px-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="800"
+      >
+        <div class="group-hover:shadow-xl border border-gray-400">
+          <div
+            class="box-gambar relative p-2 h-56 w-full bg-cover bg-bottom hover:scale-105 hover:shadow-sm transition ease-in-out duration-300 cursor-pointer"
+            style="background-image: url('../assets/image/rumah\ pohon\ 2.jpg')"
+          ></div>
+          <div
+            class="flex flex-col justify-between -mt-4 px-4 py-6 bg-white hover:z-50 hover:relative transition ease-in-out duration-300"
+          >
+            <h1
+              class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
+            >
+              Runmah Pohon Tugulasi
+            </h1>
+            <p class="text-center leading-normal text-gray-700 line-clamp-3">
+              destinasi wisata populer yang menawarkan spot selfie menarik
+              dengan rumah pohon bambu berlatar belakang pemandangan alam yang
+              hijau. Dengan tiket masuk terjangkau, pengunjung dapat menikmati
+              keindahan alam dari ketinggian, serta mengabadikan momen dalam
+              foto-foto yang menarik
+            </p>
+            <div class="div items-center flex justify-center">
+              <a
+                href="#"
+                class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Selengkapnya-> <i class="fa-solid ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Destinasi -->
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-6 py-4">
+        <p class="text-center text-gray-700">
+          &copy; 2025 Desa Wonokeling. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <!-- Navbar Muncul -->
+    <script>
+      // Ambil elemen navbar
+      const navbar = document.getElementById("navbar");
+
+      // Fungsi untuk mengubah opacity navbar
+      function handleScroll() {
+        // Cek posisi scroll
+        if (window.scrollY > 200) {
+          // Ganti 50 dengan nilai yang sesuai
+          navbar.classList.add("visible"); // Tambahkan kelas visible
+        } else {
+          navbar.classList.remove("visible"); // Hapus kelas visible
+        }
+      }
+
+      // Tambahkan event listener untuk scroll
+      window.addEventListener("scroll", handleScroll);
+    </script>
+    <!-- Selamat datang -->
+    <script
+      type="text/javascript"
+      src="../../node_modules/tw-elements/js/tw-elements.umd.min.js"
+    ></script>
+  </body>
+</html>

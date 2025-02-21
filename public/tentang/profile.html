@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../src/dist/css/output.css" rel="stylesheet" />
+
+    <title>Blog Post</title>
+
+    <style>
+      .navbar:hover {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          1
+        ); /* Latar belakang hitam 60% transparan saat hover */
+      }
+
+      .navbar.visible {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          1
+        ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900" id="beranda">
+    <!-- Back to Home Button -->
+
+    <!-- Header -->
+    <!-- Navbar -->
+    <div
+      class="navbar px-4 fixed bg-black/0 w-full z-40 top-0 h-[80px] content-center transition duration-500 ease-in-out"
+      id="navbar"
+    >
+      <div class="container mx-auto justify-center">
+        <div class="navbar-box flex items-center justify-between relative">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="../assets/image/karanganyar logo.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12"
+            />
+            <div class="flex flex-col">
+              <h1 class="font-bold md:text-base text-sm text-white">
+                Desa Wonokeling
+              </h1>
+              <p class="text-gray-100 sm:text-sm text-xs">
+                Kec. Jatiyoso, Kab. karanganyar
+              </p>
+            </div>
+          </div>
+          <ul
+            class="menu hidden md:flex gap-x-7 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            id="menu"
+          >
+            <li class="py-4 w-full text-center">
+              <a
+                href="./index - Copy.html#beranda"
+                class="text-white hover:text-teal-500"
+                >Beranda</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownTentangButton"
+                data-dropdown-toggle="dropdownTentang"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-5 py-2.5 text-center inline-flex items-center border-b-3 border-white hover:border-teal-500"
+                type="button"
+              >
+                Tentang<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="./index - Copy.html#berita"
+                class="text-white hover:text-teal-500"
+                >Berita</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="./index - Copy.html#wisata"
+                class="text-white hover:text-teal-500"
+                >Wisata</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="./index - Copy.html#galeri"
+                class="text-white hover:text-teal-500"
+                >Galeri</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="./index - Copy.html#kontak"
+                class="text-white hover:text-teal-500"
+                >Kontak</a
+              >
+            </li>
+            <div class="opacity-50 text-white md:block hidden">|</div>
+            <i
+              class="text-white fa-brands fa-github text-4xl md:block hidden cursor-pointer hover:text-teal-600"
+            ></i>
+          </ul>
+          <div class="md:hidden block z-50">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Dropdown menu -->
+    <div
+      id="dropdownTentang"
+      class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownTentangButton"
+      >
+        <li>
+          <a
+            href="./index - Copy.html#tentang"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sekilas Desa</a
+          >
+        </li>
+        <li>
+          <button
+            id="DoubledropdownButton"
+            data-dropdown-toggle="Doubledropdown"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Profile<svg
+              class="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="Doubledropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80"
+          >
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="DoubledropdownbSutton"
+            >
+              <li>
+                <a
+                  href="#beranda"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Kepala Desa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Statistik Penduduk</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Menu Dropdown -->
+
+    <!-- Header -->
+    <header
+      class="relative h-[400px] flex items-center justify-center bg-cover bg-center bg-fixed"
+      style="background-image: url('../assets/image/img-7.jpg')"
+    >
+      <!-- Overlay untuk membuat teks lebih mudah dibaca -->
+      <div class="absolute inset-0"></div>
+      <!-- Judul di Tengah Gambar -->
+      <div class="relative z-10 text-center text-white">
+        <h1 class="text-5xl font-bold mb-4">Profile Desa Wonokeling</h1>
+        <p class="text-lg">
+          Membangun desa yang mandiri, sejahtera, dan berbudaya.
+        </p>
+      </div>
+    </header>
+
+    <!-- Header -->
+
+    <!-- Back to home -->
+    <div class="container mx-auto px-6 py-4 mt-[40px]">
+      <a
+        href="../index - Copy.html"
+        class="text-blue-500 hover:text-blue-700 hover:underline"
+        >← Back to Home</a
+      >
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8 md:px-12">
+      <!-- Section Kepala Desa -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Kepala Desa</h2>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+          <div class="flex flex-col md:flex-row items-center">
+            <!-- Foto Kepala Desa -->
+            <img
+              src="../assets/image/kepala_desa.png"
+              alt="Foto Kepala Desa"
+              class="w-48 lg:w-96 lg:h-96 h-48 rounded-full mb-4 md:mb-0 md:mr-6"
+            />
+            <!-- Informasi Kepala Desa -->
+            <div>
+              <h3 class="text-xl font-bold">Suyat</h3>
+              <p class="text-gray-700 leading-relaxed">
+                Kepala Desa Kami adalah seorang pemimpin yang visioner dan
+                berdedikasi tinggi untuk membangun desa. Beliau telah menjabat
+                sejak tahun 2021 dan terus berupaya meningkatkan kesejahteraan
+                masyarakat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section Tentang Desa -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Tentang Desa</h2>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+          <p class="text-gray-700 leading-relaxed">
+            Wonokeling adalah sebuah desa di kecamatan Jatiyoso, Kabupaten
+            Karanganyar, Jawa Tengah, Indonesia. Desa ini terbagi menjadi
+            beberapa dusun: Duwetan, Gandri, Kemengan, Metro, Ngesep Kidul,
+            Ngesep Lor, Selobentar, Watugede, dan Wonokeling. Sebagian besar
+            penduduk Wonokeling bekerja sebagai petani di ladang kering, dan
+            banyak anak muda yang merantau ke kota lain untuk berdagang,
+            biasanya berjualan bakso atau jamu. Lembaga pendidikan formal di
+            Wonokeling antara lain SD Negeri 01 Wonokeling, SD Negeri 02
+            Wonokeling, SD Negeri 03 Wonokeling, dan SMP Negeri 3 Jatiyoso. Pada
+            tahun 2011, jumlah penduduk Wonokeling adalah 2.759 jiwa,
+            menjadikannya salah satu desa dengan jumlah penduduk paling sedikit
+            di Kecamatan Jatiyoso. Desa ini dulunya memiliki jalan yang rusak
+            antar dusun, namun pada tahun 2019, program TMMD Sengkuyung
+            memperbaiki jalan tersebut dengan membangun jalan beton yang
+            menghubungkan Wonoleren, Wonokeling, Ngeseb-ngeseb, Duwetan, dan
+            Kemengan.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section Sejarah Desa -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Sejarah Desa</h2>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+          <p class="text-gray-700 leading-relaxed">
+            Wonokeling, yang terletak di kecamatan Jatiyoso, Karanganyar, tidak
+            memiliki sejarah khusus yang terdokumentasi secara luas dan tersedia
+            dalam hasil pencarian. Namun, Jatiyoso sendiri dikenal sebagai
+            daerah pertanian yang subur dan memiliki sejarah yang berkaitan
+            dengan kerajaan-kerajaan di Jawa Tengah. Pada masa kolonial,
+            Jatiyoso terkenal dengan eksploitasi kayu jati, yang secara
+            signifikan berdampak pada ekonomi lokal. Wonokeling terdiri dari
+            beberapa dusun: Duwetan, Gandri, Kemengan, Metro, Ngesep Kidul,
+            Ngesep Lor, Selobentar, Watugede, dan Wonokeling. Wonokeling
+            mendapatkan peningkatan infrastruktur pada tahun 2019 melalui
+            program TMMD Sengkuyung, yang membangun jalan beton yang
+            menghubungkan beberapa dusun, termasuk Wonoleren, Wonokeling,
+            Ngeseb-ngeseb, Duwetan, dan Kemengan. Pembangunan infrastruktur ini
+            bertujuan untuk meningkatkan ekonomi lokal dengan memfasilitasi
+            pengangkutan hasil pertanian. Desa Wonorejo yang berada di dekatnya,
+            juga di Jatiyoso, memiliki sejarah yang tercatat sebagai bagian dari
+            kerajaan Majapahit, dengan Eyang Iro Ganti sebagai tokoh sejarah
+            utama. Hal ini menunjukkan bahwa wilayah yang lebih luas memiliki
+            arti penting secara historis, meskipun rincian spesifik tentang
+            sejarah awal Wonokeling tidak tersedia dalam hasil pencarian yang
+            disediakan.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section Visi dan Misi -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Visi dan Misi</h2>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+          <h3 class="text-xl font-bold mb-2">Visi</h3>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            "Mewujudkan Desa Wonokeling yang Mandiri, Sejahtera, Berbudaya, dan
+            Berkelanjutan, dengan Mengoptimalkan Potensi Sumber Daya Alam dan
+            Sumber Daya Manusia yang Berbasis Gotong Royong."
+          </p>
+          <h3 class="text-xl font-bold mb-2">Misi</h3>
+          <ul class="list-disc list-inside text-gray-700 leading-relaxed">
+            <li>Meningkatkan Kualitas Sumber Daya Manusia</li>
+            <li>Mengembangkan Ekonomi Kerakyatan Berbasis Potensi Lokal</li>
+            <li>Meningkatkan Kualitas Infrastruktur dan Lingkungan Hidup</li>
+            <li>Memperkuat Tata Kelola Pemerintahan yang Baik</li>
+            <li>Memelihara Nilai-nilai Budaya dan Tradisi Gotong Royong</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section Kontak -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Kontak</h2>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+          <p class="text-gray-700 leading-relaxed">
+            Jika Anda memiliki pertanyaan atau ingin berkunjung ke Desa Kami,
+            silakan hubungi kami melalui informasi di bawah ini:
+          </p>
+          <ul class="mt-4 text-gray-700 leading-relaxed">
+            <li>
+              <strong>Alamat:</strong> 7486+JG8, Selo Bentar, Wonokeling, Kec.
+              Jatiyoso, Kabupaten Karanganyar, Jawa Tengah 57785
+            </li>
+            <li><strong>Telepon:</strong> +62 123 4567 890</li>
+            <li><strong>Email:</strong> desawonokeling@gmail.com</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-6 py-4">
+        <p class="text-center text-gray-700">
+          &copy; 2025 Desa Wonokeling. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <!-- Navbar Muncul -->
+    <script>
+      // Ambil elemen navbar
+      const navbar = document.getElementById("navbar");
+
+      // Fungsi untuk mengubah opacity navbar
+      function handleScroll() {
+        // Cek posisi scroll
+        if (window.scrollY > 200) {
+          // Ganti 50 dengan nilai yang sesuai
+          navbar.classList.add("visible"); // Tambahkan kelas visible
+        } else {
+          navbar.classList.remove("visible"); // Hapus kelas visible
+        }
+      }
+
+      // Tambahkan event listener untuk scroll
+      window.addEventListener("scroll", handleScroll);
+    </script>
+    <!-- Selamat datang -->
+  </body>
+</html>

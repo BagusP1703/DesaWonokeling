@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../src/dist/css/output.css" rel="stylesheet" />
+    <title>Blog Post</title>
+
+    <style>
+      .navbar:hover {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          1
+        ); /* Latar belakang hitam 60% transparan saat hover */
+      }
+
+      .navbar.visible {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          1
+        ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900" id="beranda">
+    <!-- Back to Home Button -->
+
+    <!-- Header -->
+    <!-- Navbar -->
+    <div
+      class="navbar px-4 py-1.5 fixed bg-black w-full z-40 top-0 h-[80px] content-center"
+      id="navbar"
+    >
+      <div class="container mx-auto justify-center">
+        <div class="navbar-box flex items-center justify-between relative">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="assets/image/karanganyar logo.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12"
+            />
+            <div class="flex flex-col">
+              <h1 class="font-bold md:text-base text-sm text-white">
+                Desa Wonokeling
+              </h1>
+              <p class="text-gray-100 sm:text-sm text-xs">
+                Kec. Jatiyoso, Kab. karanganyar
+              </p>
+            </div>
+          </div>
+          <ul
+            class="menu hidden md:flex gap-x-7 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            id="menu"
+          >
+            <li class="py-4 w-full text-center">
+              <a href="#beranda" class="text-white hover:text-teal-500"
+                >Beranda</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownTentangButton"
+                data-dropdown-toggle="dropdownTentang"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-5 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Tentang<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-1 w-full text-center group">
+              <a
+                href="#beranda"
+                class="text-white hover:text-teal-500 border-b-3 border-white hover:border-teal-500 py-1"
+                >Berita</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#wisata" class="text-white hover:text-teal-500"
+                >Wisata</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#galeri" class="text-white hover:text-teal-500"
+                >Galeri</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#kontak" class="text-white hover:text-teal-500"
+                >Kontak</a
+              >
+            </li>
+            <div class="opacity-50 text-white md:block hidden">|</div>
+            <i
+              class="text-white fa-brands fa-github text-4xl md:block hidden cursor-pointer hover:text-teal-600"
+            ></i>
+          </ul>
+          <div class="md:hidden block z-50">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Dropdown menu -->
+    <div
+      id="dropdownTentang"
+      class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownTentangButton"
+      >
+        <li>
+          <a
+            href="#tentang"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sekilas Desa</a
+          >
+        </li>
+        <li>
+          <button
+            id="DoubledropdownButton"
+            data-dropdown-toggle="Doubledropdown"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Profile<svg
+              class="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="Doubledropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80"
+          >
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="DoubledropdownbSutton"
+            >
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Kepala Desa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Statistik Penduduk</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Menu Dropdown -->
+
+    <div class="container mx-auto px-6 py-4 mt-[80px]">
+      <a
+        href="../public/index - Copy.html#berita"
+        class="text-blue-500 hover:text-blue-700 hover:underline"
+        >← Back to Berita Terkini</a
+      >
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+      <div class="max-w-4xl mx-auto">
+        <!-- Blog Post -->
+        <article class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <!-- Post Image -->
+          <img
+            class="w-full h-64 object-cover"
+            src="./assets/image/longsor.jpg"
+            alt="Blog Post Image"
+          />
+
+          <!-- Post Content -->
+          <div class="p-6">
+            <h2 class="text-2xl font-bold mb-2">
+              Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1 Perempuan
+            </h2>
+            <p class="text-gray-700 text-sm">
+              Diposting pada
+              <time datetime="2023-10-01">6 Desember 2023</time> oleh
+              <a href="#" class="text-blue-500 hover:underline">Penulis</a>
+            </p>
+
+            <div class="mt-4">
+              <p class="text-gray-700 leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                nisl eros, pulvinar facilisis justo mollis, auctor consequat
+                urna. Morbi a bibendum metus. Donec scelerisque sollicitudin
+                enim eu venenatis. Duis tincidunt laoreet ex, in pretium orci
+                vestibulum eget. Class aptent taciti sociosqu ad litora torquent
+                per conubia nostra, per inceptos himenaeos.
+              </p>
+              <p class="text-gray-700 leading-relaxed mt-4">
+                Duis velit quam, fermentum ut mauris nec, tincidunt viverra
+                turpis. Fusce condimentum augue vel ante commodo, nec facilisis
+                libero bibendum. Integer nec tincidunt libero. Vivamus pharetra
+                nisi at nunc aliquet, nec tincidunt lorem tincidunt.
+              </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-6">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >#Berita</span
+              >
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >#Bencana</span
+              >
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                >#informasi</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- Comments Section -->
+        <section class="mt-8">
+          <h3 class="text-xl font-bold mb-4">Komentar</h3>
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+            <!-- Comment -->
+            <div class="mb-4">
+              <p class="text-gray-700 text-sm">
+                <strong>John Doe</strong> -
+                <time datetime="2023-10-02">6 Desember 2023</time>
+              </p>
+              <p class="text-gray-700 mt-1">Apa Tanggapan Anda?</p>
+            </div>
+            <!-- Comment Form -->
+            <form class="mt-6">
+              <textarea
+                class="w-full p-2 border border-gray-300 rounded-lg"
+                rows="4"
+                placeholder="Tulis komentar Anda..."
+              ></textarea>
+              <button
+                type="submit"
+                class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
+                Kirim Komentar
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-6 py-4">
+        <p class="text-center text-gray-700">
+          &copy; 2023 My Blog. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    
+  </body>
+</html>

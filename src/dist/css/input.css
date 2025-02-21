@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@config "../../../tailwind.config.js";
+@import "flowbite/src/themes/default";
+
+@layer utilities {
+  * {
+    font-family: "Inter", serif;
+    font-family: "arizona Sans Serif", sans-serif;
+  }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: #0d9488;
+  }
+  @theme {
+    --breakpoint-xs: 30rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .menu {
+      transform: scale(0);
+      transform-origin: top;
+      opacity: 0;
+      transition: none;
+    }
+    .menu.menu-active {
+      transform: scale(1);
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+  }
+  .header .header-box .box h1 {
+    --animate-delay: 0.5s;
+  }
+
+  .header .header-box .box p {
+    --animate-delay: 1s;
+  }
+
+  .header .header-box .box img {
+    --animate-delay: 0.5s;
+  }
+
+  .header .header-box .box button {
+    --animate-delay: 2s;
+  }
+}
+
+@layer components {
+  .post {
+    @apply grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 justify-center;
+  }
+  .post-box {
+    @apply p-4 shadow-2xl rounded-lg;
+  }
+  .post-img {
+    @apply w-full h-52 object-cover object-center rounded-lg;
+  }
+  .post-category {
+    @apply text-sm font-semibold uppercase text-op mt-2.5;
+  }
+  .post-title {
+    @apply font-semibold text-2xl text-gray-900 block mt-1.5;
+  }
+  .post-date {
+    @apply mt-2.5 block text-gray-800;
+  }
+  .post-description {
+    @apply mt-2.5 text-gray-800;
+  }
+  .post-profile {
+    @apply flex mt-3;
+  }
+  .post-profile-img {
+    @apply w-6 mr-3 bg-op rounded-full pt-0.5;
+  }
+  .post-profile-name {
+    @apply text-base text-center text-gray-800;
+  }
+
+  /* pengumuman */
+  .peng-card {
+    @apply w-full md:w-[80px] h-[80px] md:h-[350px]  bg-cover cursor-pointer overflow-hidden rounded-4xl mx-2 flex items-end shadow-5-strong transition-all duration-1000 ease-in-out hover:h-[250px] md:hover:h-[350px] relative before:absolute before:inset-0 before:bg-black before:opacity-0 hover:before:opacity-50 before:transition-opacity before:duration-500;
+  }
+  .peng-icon {
+    @apply text-gray-100 bg-gray-800 rounded-full w-14 h-14 items-center justify-center flex m-3 z-50;
+  }
+  .peng-title {
+    @apply text-gray-100 uppercase font-semibold text-lg hover:underline hover:decoration-1 hover:decoration-op;
+  }
+  .peng-description {
+    @apply flex justify-center flex-col overflow-hidden translate-y-8 transition-all duration-1000 ease-in-out delay-300 pl-3;
+  }
+}
