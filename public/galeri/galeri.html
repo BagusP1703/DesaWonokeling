@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../src/dist/css/output.css" rel="stylesheet" />
+    <!-- Font Awesome CDN -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Jonsuh -->
+    <link rel="stylesheet" href="../src/dist/css/hamburgers.css" />
+
+    <title>Blog Galeri</title>
+
+    <style>
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        transition: transform 0.15s ease;
+      }
+
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        content: "";
+        display: block;
+      }
+
+      .hamburger-inner::before {
+        top: -10px;
+      }
+
+      .hamburger-inner::after {
+        bottom: -10px;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner {
+        transform: rotate(45deg);
+        background-color: #ffffff;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::before {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        top: 0;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::after {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        bottom: 0;
+      }
+      .navbar {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0
+        ); /* Mulai dengan latar belakang transparan */
+        transition: background-color 0.5s ease; /* Transisi untuk latar belakang */
+      }
+      .navbar:hover {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          0.8
+        ); /* Latar belakang hitam 60% transparan saat hover */
+      }
+
+      .navbar.visible {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          8
+        ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900" id="beranda">
+    <!-- Back to Home Button -->
+
+    <!-- Header -->
+    <!-- Navbar -->
+    <div
+      class="navbar px-4 py-3 md:py-1 fixed bg-slate-900 w-full z-999 animate__animated animate__fadeInDown"
+      id="navbar"
+    >
+      <div class="container mx-auto">
+        <div class="navbar-box flex items-center justify-between relative">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="../assets/image/karanganyar logo.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12 hover:cursor-pointer"
+              onclick="window.location.href='../index.html'"
+            />
+            <div class="flex flex-col">
+              <h1
+                class="font-bold md:text-base text-sm text-white/90 hover:cursor-pointer hover:underline hover:decoration-1"
+                onclick="window.location.href='../tentang/profile.html'"
+              >
+                Desa Wonokeling
+              </h1>
+              <p class="text-white/90 sm:text-sm text-xs">
+                Kec.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href=" https://www.karanganyarkab.go.id/kecamatan-jatiyoso/"
+                  >Jatiyoso</a
+                >
+                ,Kab.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href="https://www.karanganyarkab.go.id/"
+                  >karanganyar</a
+                >
+              </p>
+            </div>
+          </div>
+          <ul
+            class="menu hidden md:flex gap-x-6 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            id="menu"
+          >
+            <li class="py-1.5 w-full text-center">
+              <a
+                href="../index.html"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 hover:border-teal-500 rounded-lg"
+                >Beranda</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownTentangButton"
+                data-dropdown-toggle="dropdownTentang"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Tentang<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownBeritaButton"
+                data-dropdown-toggle="dropdownBerita"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Informasi<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../wisata/wisata.html"
+                class="text-white/90 hover:text-teal-500"
+                >Wisata</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="#beranda"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 border-b-2 border-white/90 hover:border-teal-500 rounded-lg"
+                >Galeri</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index.html#kontak"
+                class="text-white/90 hover:text-teal-500"
+                >Kontak</a
+              >
+            </li>
+            <div class="opacity-50 text-white md:block hidden">|</div>
+            <li
+              class="py-4 w-full text-center md:py-0 border border-white/60 rounded-lg hover:border-teal-500 transition-all"
+            >
+              <form class="flex items-center gap-6 px-2">
+                <input
+                  type="text"
+                  placeholder="Cari..."
+                  class="w-full md:w-20 px-3 py-1.5 text-sm text-white focus:outline-none transition-all"
+                  butt
+                />
+                <button
+                  type="submit"
+                  class="text-white/90 hover:text-teal-500 focus:outline-none"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
+          </ul>
+          <div class="md:hidden block z-50 pt-4 pr-4">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Dropdown menu -->
+    <div
+      id="dropdownTentang"
+      class="z-50 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownTentangButton"
+      >
+        <li>
+          <a
+            href="../index.html#tentang"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sekilas Desa</a
+          >
+        </li>
+        <li>
+          <button
+            id="DoubledropdownButton"
+            data-dropdown-toggle="Doubledropdown"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Profile<svg
+              class="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="Doubledropdown"
+            class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80"
+          >
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="DoubledropdownButton"
+            >
+              <li>
+                <a
+                  href="../tentang/profile.html"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Kepala Desa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Statistik Penduduk</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- berita -->
+    <div
+      id="dropdownBerita"
+      class="z-1000 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownBeritaButton"
+      >
+        <li>
+          <a
+            href="../index.html#layanan-publik"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Layanan Publik</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="../tentang/pengumuman.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pengumuman</a
+          >
+        </li>
+        <li>
+          <a
+            href="../berita/berita.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Berita Terkini</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Menu Dropdown -->
+
+    <!-- Header -->
+    <header
+      class="relative h-[400px] flex items-center justify-center bg-cover bg-center bg-fixed"
+      style="background-image: url('https://picsum.photos/900/600')"
+    >
+      <!-- Overlay untuk membuat teks lebih mudah dibaca -->
+      <div class="absolute inset-0 bg-black/50"></div>
+      <!-- Judul di Tengah Gambar -->
+      <div class="relative z-10 text-center text-white">
+        <h1 class="text-5xl font-bold mb-4">Galeri Desa</h1>
+        <p class="text-lg">Dokumentasi foto-foto seputar Desa Wonokeling</p>
+      </div>
+    </header>
+
+    <!-- Header -->
+
+    <!-- Breadcrumb -->
+    <div
+      class="container mx-auto px-4 pb-3 pt-6 text-sm text-gray-600 flex flex-wrap items-center"
+    >
+      <div class="group">
+        <i class="fa-solid fa-house mr-0.5 group-hover:text-teal-600"></i>
+        <a href="../index.html" class="group-hover:text-teal-600">Beranda</a>
+      </div>
+      <span class="mx-2">/</span>
+      <a href="./galeri.html" class="text-gray-900 font-semibold"
+        >Galeri Desa</a
+      >
+    </div>
+
+    <!-- Main Content -->
+    <main class="maincontainer p-8 md:p-16">
+      <!-- Button Section Start -->
+      <!-- style -->
+      <style>
+        .button-group .button.active {
+          background-color: #2c4875;
+          color: #e5e7eb;
+
+          .item:hover .overlay {
+            opacity: 1;
+          }
+        }
+      </style>
+
+      <div
+        class="button-group text-center mb-4 md:mb-12 flex flex-wrap justify-center"
+      >
+        <button
+          class="button active inline-block m-2 px-4 py-2 bg-gray-200 text-mb hover:bg-dsb hover:text-gray-200 text-xs md:text-base uppercase font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer"
+          data-filter="*"
+        >
+          All
+        </button>
+
+        <button
+          class="button inline-block m-2 px-4 py-2 bg-gray-200 text-dsb hover:bg-dsb hover:text-gray-200 text-xs md:text-base uppercase font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer"
+          data-filter=".kegiatan"
+        >
+          Kegiatan Warga
+        </button>
+        <button
+          class="button inline-block m-2 px-4 py-2 bg-gray-200 text-dsb hover:bg-dsb hover:text-gray-200 text-xs md:text-base uppercase font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer"
+          data-filter=".event"
+        >
+          Event dan Festival
+        </button>
+        <button
+          class="button inline-block m-2 px-4 py-2 bg-gray-200 text-dsb hover:bg-dsb hover:text-gray-200 text-xs md:text-base uppercase font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer"
+          data-filter=".adat"
+        >
+          Adat dan Budaya
+        </button>
+        <button
+          class="button inline-block m-2 px-4 py-2 bg-gray-200 text-dsb hover:bg-dsb hover:text-gray-200 text-xs md:text-base uppercase font-semibold transition-all duration-300 ease-in-out rounded-md cursor-pointer"
+          data-filter=".alam"
+        >
+          Alam dan Lingkungan
+        </button>
+      </div>
+      <!-- Button Section End -->
+
+      <!-- Galeri Section Start -->
+      <div class="galeri w-full flex flex-wrap justify-center">
+        <!-- Card 1 -->
+        <button
+          class="item kegiatan relative h-64 mt-4 mx-1 w-2xs md:w-sm cursor-pointer overflow-hidden group"
+          data-modal-target="galeri1-modal"
+          data-modal-toggle="galeri1-modal"
+        >
+          <img
+            src="https://picsum.photos/600/500"
+            class="w-full h-full mx-auto object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+            alt=""
+          />
+          <div
+            class="overlay absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+          >
+            <p
+              href="#"
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              View More
+            </p>
+          </div>
+        </button>
+
+        <!-- Modal1 -->
+        <div
+          id="galeri1-modal"
+          tabindex="-1"
+          aria-hidden="true"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-12 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+        >
+          <div class="relative p-4 w-full max-w-4xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-gray-700 rounded-lg shadow-sm">
+              <!-- Modal header -->
+              <div
+                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  Peringatan HUT Desa ke-137
+                </h3>
+                <button
+                  type="button"
+                  class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                  data-modal-hide="galeri1-modal"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <!-- Modal body -->
+              <div
+                class="p-4 md:p-5 space-y-4 flex flex-col md:flex-row gap-y-4 md:gap-x-6"
+              >
+                <img
+                  src="https://picsum.photos/600/500"
+                  class="w-full md:w-64 h-48 md:h-full object-cover mx-auto group-hover:scale-110 transition-all duration-300 ease-in-out"
+                  alt=""
+                />
+
+                <div class="space-y-3">
+                  <p class="text-white text-sm md:text-base">
+                    📅 Waktu : 12 Agustus 2024 <br />
+                    🎪 Lokasi : Lapangan Balai Desa
+                    <br />
+                    <span
+                      class="pt-2 md:pt-4 block text-gray-200 text-xs md:text-sm"
+                    >
+                      Prosesi penyematan tanda peserta lomba makan kerupuk oleh
+                      Ketua Panitia HUT Desa. Acara ini diikuti oleh 45 anak
+                      usia SD dengan antusiasme warga yang memadati area
+                      lapangan.
+                    </span>
+                  </p>
+
+                  <div
+                    class="bg-yellow-50 p-2 md:p-3 rounded-lg flex text-xs md:text-sm"
+                  >
+                    <div class="flex-grow">
+                      💡 <strong>Fakta Unik:</strong>
+                      Lomba ini menggunakan 150 kerupuk udang produksi UMKM Desa
+                      Sukamaju
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal footer -->
+              <div
+                class="flex items-center p-3 mb-6 border-t-2 border-gray-200 rounded-b dark:border-gray-600"
+              >
+                <div class="flex place-content-center gap-6 w-full">
+                  <i class="fa-brands fa-whatsapp text-3xl hover:text-op"></i>
+                  <i class="fa-brands fa-instagram text-3xl hover:text-op"></i>
+                  <i class="fa-brands fa-facebook text-3xl hover:text-op"></i>
+                  <i class="fa-brands fa-tiktok text-3xl hover:text-op"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div
+          class="item kegiatan relative h-64 mt-5 mx-1.5 w-2xs md:w-sm cursor-pointer overflow-hidden group"
+        >
+          <img
+            src="https://picsum.photos/601/500"
+            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+            alt=""
+          />
+          <div
+            class="overlay absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+          >
+            <a
+              href="#"
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >View More</a
+            >
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div
+          class="item event relative h-64 mt-5 mx-1.5 w-2xs md:w-sm cursor-pointer overflow-hidden group"
+        >
+          <img
+            src="https://picsum.photos/602/500"
+            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+            alt=""
+          />
+          <div
+            class="overlay absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+          >
+            <a
+              href="#"
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >View More</a
+            >
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div
+          class="item event relative h-64 mt-5 mx-1.5 w-2xs md:w-sm cursor-pointer overflow-hidden group"
+        >
+          <img
+            src="https://picsum.photos/603/500"
+            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+            alt=""
+          />
+          <div
+            class="overlay absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+          >
+            <a
+              href="#"
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >View More</a
+            >
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div
+          class="item adat relative h-64 mt-5 mx-1.5 w-2xs md:w-sm cursor-pointer overflow-hidden group"
+        >
+          <img
+            src="https://picsum.photos/604/500"
+            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+            alt=""
+          />
+          <div
+            class="overlay absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+          >
+            <a
+              href="#"
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >View More</a
+            >
+          </div>
+        </div>
+        <!-- Card 1 -->
+        <div
+          class="item alam relative h-64 mt-5 mx-1.5 w-2xs md:w-sm cursor-pointer overflow-hidden group"
+        >
+          <img
+            src="https://picsum.photos/605/500"
+            class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300 ease-in-out"
+            alt=""
+          />
+          <div
+            class="overlay absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"
+          >
+            <a
+              href="#"
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >View More</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Galeri Section Start -->
+    </main>
+    <!-- Main Content -->
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-6 py-4">
+        <p class="text-center text-gray-700">
+          &copy; 2025 Desa Wonokeling. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <!-- Navbar Muncul -->
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- isotope -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+    <script>
+      // Ambil elemen navbar
+      const navbar = document.getElementById("navbar");
+
+      // Fungsi untuk mengubah opacity navbar
+      function handleScroll() {
+        // Cek posisi scroll
+        if (window.scrollY > 200) {
+          // Ganti 50 dengan nilai yang sesuai
+          navbar.classList.add("visible"); // Tambahkan kelas visible
+        } else {
+          navbar.classList.remove("visible"); // Hapus kelas visible
+        }
+      }
+
+      // Tambahkan event listener untuk scroll
+      window.addEventListener("scroll", handleScroll);
+    </script>
+    <!-- JS -->
+    <script src="../../src/dist/js/script.js"></script>
+
+    <!-- JS galeri -->
+    <script type="text/javascript">
+      var $galericontainer = $(".galeri").isotope({
+        // options
+        itemSelector: ".item",
+        layoutMode: "fitRows",
+      });
+
+      $(".button-group .button").on("click", function () {
+        $(".button-group .button").removeClass("active");
+        $(this).addClass("active");
+
+        var value = $(this).attr("data-filter");
+        $galericontainer.isotope({
+          filter: value,
+        });
+      });
+    </script>
+  </body>
+</html>

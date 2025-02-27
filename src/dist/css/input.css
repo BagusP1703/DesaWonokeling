@@ -1,4 +1,3 @@
-@import "../styles/dummy.css";
 @import "tailwindcss";
 @config "../../../tailwind.config.js";
 @import "flowbite/src/themes/default";
@@ -93,3 +92,5 @@
     @apply flex justify-center flex-col overflow-hidden translate-y-8 transition-all duration-1000 ease-in-out delay-300 pl-3;
   }
 }
+
+/* Galeri */

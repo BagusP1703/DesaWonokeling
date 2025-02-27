@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../src/dist/css/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Jonsuh -->
+    <link rel="stylesheet" href="../src/dist/css/hamburgers.css" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Blog Post</title>
+
+    <style>
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        transition: transform 0.15s ease;
+      }
+
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        content: "";
+        display: block;
+      }
+
+      .hamburger-inner::before {
+        top: -10px;
+      }
+
+      .hamburger-inner::after {
+        bottom: -10px;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner {
+        transform: rotate(45deg);
+        background-color: #ffffff;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::before {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        top: 0;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::after {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        bottom: 0;
+      }
+
+      .navbar {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0
+        ); /* Mulai dengan latar belakang transparan */
+        transition: background-color 0.5s ease; /* Transisi untuk latar belakang */
+      }
+      .navbar:hover {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          0.8
+        ); /* Latar belakang hitam 60% transparan saat hover */
+      }
+
+      .navbar.visible {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          8
+        ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900" id="beranda">
+    <!-- Header -->
+    <!-- Navbar -->
+    <div
+      class="navbar px-4 py-3 md:py-1 fixed bg-slate-900 w-full z-999 animate__animated animate__fadeInDown"
+      id="navbar"
+    >
+      <div class="container mx-auto">
+        <div class="navbar-box flex items-center justify-between relative">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="../assets/image/karanganyar logo.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12 hover:cursor-pointer"
+              onclick="window.location.href='../index.html'"
+            />
+            <div class="flex flex-col">
+              <h1
+                class="font-bold md:text-base text-sm text-white/90 hover:cursor-pointer hover:underline hover:decoration-1"
+                onclick="window.location.href='../tentang/profile.html'"
+              >
+                Desa Wonokeling
+              </h1>
+              <p class="text-white/90 sm:text-sm text-xs">
+                Kec.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href=" https://www.karanganyarkab.go.id/kecamatan-jatiyoso/"
+                  >Jatiyoso</a
+                >
+                ,Kab.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href="https://www.karanganyarkab.go.id/"
+                  >karanganyar</a
+                >
+              </p>
+            </div>
+          </div>
+          <ul
+            class="menu hidden lg:flex gap-x-6 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            id="menu"
+          >
+            <li class="py-1.5 w-full text-center">
+              <a
+                href="../index.html#beranda"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 hover:border-teal-500 rounded-lg"
+                >Beranda</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownTentangButton"
+                data-dropdown-toggle="dropdownTentang"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Tentang<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownBeritaButton"
+                data-dropdown-toggle="dropdownBerita"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 border-b-2 border-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Informasi<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="./wisata/wisata.html"
+                class="text-white/90 hover:text-teal-500"
+                >Wisata</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#galeri" class="text-white/90 hover:text-teal-500"
+                >Galeri</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a href="#kontak" class="text-white/90 hover:text-teal-500"
+                >Kontak</a
+              >
+            </li>
+            <div class="opacity-50 text-white md:block hidden">|</div>
+            <li
+              class="py-4 w-full text-center md:py-0 border border-white/60 rounded-lg hover:border-teal-500 transition-all"
+            >
+              <form class="flex items-center gap-6 px-2">
+                <input
+                  type="text"
+                  placeholder="Cari..."
+                  class="w-full md:w-20 px-3 py-1.5 text-sm text-white focus:outline-none transition-all"
+                  butt
+                />
+                <button
+                  type="submit"
+                  class="text-white/90 hover:text-teal-500 focus:outline-none"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
+          </ul>
+          <div class="md:hidden block z-50 pt-4 pr-4">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Dropdown menu -->
+    <div
+      id="dropdownTentang"
+      class="z-1000 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownTentangButton"
+      >
+        <li>
+          <a
+            href="../index.html#tentang"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sekilas Desa</a
+          >
+        </li>
+        <li>
+          <button
+            id="DoubledropdownButton"
+            data-dropdown-toggle="Doubledropdown"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Profile<svg
+              class="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="Doubledropdown"
+            class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80"
+          >
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="DoubledropdownButton"
+            >
+              <li>
+                <a
+                  href="../tentang/profile.html"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Kepala Desa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Statistik Penduduk</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- berita -->
+    <div
+      id="dropdownBerita"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownBeritaButton"
+      >
+        <li>
+          <a
+            href="../index.html#layanan-publik"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Layanan Publik</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="../tentang/pengumuman.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pengumuman</a
+          >
+        </li>
+        <li>
+          <a
+            href="../berita/berita.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Berita Terkini</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Menu Dropdown -->
+
+    <header
+      class="relative h-screen flex items-center justify-center bg-cover bg-center bg-fixed"
+      style="background-image: url('https://picsum.photos/1800/1600')"
+    >
+      <!-- Overlay untuk membuat teks lebih mudah dibaca -->
+      <div class="absolute inset-0 bg-black/60"></div>
+      <!-- Judul di Tengah Gambar -->
+      <div class="relative z-10 text-center text-white max-w-5xl">
+        <p class="text-base sm:text-lg">04/12/2024 by AdminDesa</p>
+        <h1
+          class="max-w-4/5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 mx-auto"
+        >
+          Musyawarah Pembangunan Jalan Desa
+        </h1>
+      </div>
+    </header>
+
+    <div
+      class="container mx-auto px-4 pb-3 pt-5 text-sm text-gray-600 flex flex-wrap items-center"
+    >
+      <div class="group mr-2 mb-1">
+        <i class="fa-solid fa-house mr-0.5 group-hover:text-teal-600"></i>
+        <a href="../index.html" class="group-hover:text-teal-600">Beranda</a>
+      </div>
+      <span class="mx-1 mb-1">/</span>
+      <a href="../tentang/pengumuman.html" class="hover:text-teal-600 mx-1 mb-1"
+        >Pengumuman</a
+      >
+      <span class="mx-1 mb-1">/</span>
+      <span class="text-gray-900 font-semibold mb-1 break-all sm:break-normal"
+        >Musyawarah Pembangunan Jalan Desa</span
+      >
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-8 sm:px-14 py-8 flex">
+      <div class="w-full sm:w-4/5 md:w-2/3 mx-auto">
+        <!-- Blog Post -->
+        <article class="overflow-hidden">
+          <!-- Post Image -->
+          <img
+            class="w-full h-64 object-cover"
+            src="https://picsum.photos/1000/800"
+            alt="Blog Post Image"
+          />
+
+          <!-- Post Content -->
+          <div class="py-6">
+            <h2 class="text-2xl font-bold mb-2">
+              MUSYAWARAH PEMBANGUNAN JALAN DUSUN DUWETAN
+            </h2>
+            <p class="text-gray-700 text-sm">
+              Diposting pada
+              <time datetime="2023-10-01">6 Desember 2023</time> oleh
+              <a href="#" class="text-blue-500 hover:underline">Admin Desa</a>
+            </p>
+
+            <div class="mt-4">
+              <p class="text-gray-700 leading-relaxed">
+                📅 Hari/Tanggal : Sabtu, 10 Maret 2025 <br />
+                ⏰ Waktu : Pukul 13.00 WIB - Selesai <br />
+                📍 Tempat : Balai Desa Wonokeling <br />
+                📋 Agenda : <br />
+                Penyusunan rencana teknis pembangunan jalan Pembahasan mekanisme
+                partisipasi warga Pengalokasian anggaran desa Penjaringan
+                aspirasi masyarakat. Pembangunan jalan dusun Mekar merupakan
+                program prioritas tahun 2025 untuk meningkatkan aksesibilitas
+                warga sekaligus mendukung pertumbuhan ekonomi lokal. Jalan
+                sepanjang ±2 km ini akan menghubungkan 3 RT di Dusun Duwetan
+                dengan pusat kegiatan ekonomi desa.
+              </p>
+
+              <ol class="text-gray-700 leading-relaxed mt-4 list-decimal pl-4">
+                <li>Menyepakati desain dan spesifikasi teknis jalan</li>
+                <li>Mengatur mekanisme gotong royong warga</li>
+                <li>Menetapkan alokasi dana dari</li>
+                <li>Membentuk panitia pengawas pembangunan</li>
+              </ol>
+
+              <p class="text-gray-700 leading-relaxed mt-4"></p>
+              <p class="text-gray-700 leading-relaxed mt-4">
+                Kepala Desa Wonokeling, Bpk. Suyat dalam sambutannya menegaskan:
+                "Pembangunan ini membutuhkan sinergi antara pemerintah desa dan
+                partisipasi aktif warga. Mari kita wujudkan jalan berkualitas
+                dengan biaya efisien melalui swakelola masyarakat." <br />
+                Segala bentuk aspirasi dan pertanyaan dapat disampaikan melalui:
+                <br />
+                📞 0812-3456-7890 (Sekretaris Desa) <br />
+                📧 desa.wonokeling@domain.desa.id <br />
+                Ditutup dengan "Partisipasi aktif warga merupakan kunci sukses
+                pembangunan desa. Kehadiran dan kontribusi pemikiran Bapak/Ibu
+                sangat kami nantikan."
+              </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-6">
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >#Berita</span
+              >
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+                >#proyek</span
+              >
+              <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700"
+                >#informasi</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <!-- Comments Section -->
+        <section class="mt-8">
+          <h3 class="text-xl font-bold mb-4">Komentar</h3>
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden p-6">
+            <!-- Comment -->
+            <div class="mb-4">
+              <p class="text-gray-700 text-sm">
+                <strong>John Doe</strong> -
+                <time datetime="2023-10-02">6 Desember 2023</time>
+              </p>
+              <p class="text-gray-700 mt-1">Apa Tanggapan Anda?</p>
+            </div>
+            <!-- Comment Form -->
+            <form class="mt-6">
+              <textarea
+                class="w-full p-2 border border-gray-300 rounded-lg"
+                rows="4"
+                placeholder="Tulis komentar Anda..."
+              ></textarea>
+              <button
+                type="submit"
+                class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
+                Kirim Komentar
+              </button>
+            </form>
+          </div>
+        </section>
+      </div>
+      <div class="w-1/5 pl-3 md:block hidden">
+        <h1 class="font-semibold text-sm uppercase tracking-widest px-3.5 py-4">
+          Desa Wonokeling
+        </h1>
+        <p class="text-sm text-gray-700 px-3.5">
+          Selo Bentar, Wonokeling, Kec. Jatiyoso, Kabupaten Karanganyar, Jawa
+          Tengah 57785
+        </p>
+        <h1
+          class="font-semibold text-sm uppercase tracking-widest px-3.5 py-4 mt-3"
+        >
+          Kepala desa
+        </h1>
+        <div class=""><img src="../assets/image/kepala_desa.png" alt="" /></div>
+        <p
+          class="font-semibold text-3xl px-3.5 text-center"
+          style="font-family: 'Arizonia', serif"
+        >
+          Suyat
+        </p>
+        <h1
+          class="font-semibold text-sm uppercase tracking-widest px-3.5 py-4 mt-3"
+        >
+          Kategori
+        </h1>
+        <a
+          href="../index.html"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Beranda</a
+        >
+        <a
+          href="../tentang/profile.html"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Profile Desa</a
+        >
+        <a
+          href="../index.html#layanan-publik"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Layanan Publik</a
+        >
+        <a
+          href="../tentang/pengumuman.html"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Pengumuman</a
+        >
+        <a
+          href="../berita/berita.html"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Berita Terkini</a
+        >
+        <a
+          href="../wisata/wisata.html"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Destinasi Wisata</a
+        >
+        <a
+          href="../galeri/galeri.html"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Galeri Desa</a
+        >
+        <a
+          href="../index.html#kontak"
+          class="text-sm text-gray-700 px-3.5 block my-2 hover:underline"
+          >Kontak</a
+        >
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-6 py-4">
+        <p class="text-center text-gray-700">
+          &copy; 2025 Desa Wonokeling. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <!-- Navbar Muncul -->
+    <!-- JS -->
+    <script src="../../src/dist/js/script.js"></script>
+    <script>
+      // Ambil elemen navbar
+      const navbar = document.getElementById("navbar");
+
+      // Fungsi untuk mengubah opacity navbar
+      function handleScroll() {
+        // Cek posisi scroll
+        if (window.scrollY > 200) {
+          // Ganti 50 dengan nilai yang sesuai
+          navbar.classList.add("visible"); // Tambahkan kelas visible
+        } else {
+          navbar.classList.remove("visible"); // Hapus kelas visible
+        }
+      }
+
+      // Tambahkan event listener untuk scroll
+      window.addEventListener("scroll", handleScroll);
+    </script>
+    <!-- Selamat datang -->
+    <script
+      type="text/javascript"
+      src="../../node_modules/tw-elements/js/tw-elements.umd.min.js"
+    ></script>
+  </body>
+</html>

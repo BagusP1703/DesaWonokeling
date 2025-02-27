@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../src/dist/css/output.css" rel="stylesheet" />
+    <!-- Font Awesome CDN -->
+    <!-- Jonsuh -->
+    <link rel="stylesheet" href="../src/dist/css/hamburgers.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Blog Post</title>
+
+    <style>
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        transition: transform 0.15s ease;
+      }
+
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        content: "";
+        display: block;
+      }
+
+      .hamburger-inner::before {
+        top: -10px;
+      }
+
+      .hamburger-inner::after {
+        bottom: -10px;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner {
+        transform: rotate(45deg);
+        background-color: #ffffff;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::before {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        top: 0;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::after {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        bottom: 0;
+      }
+      .navbar {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0
+        ); /* Mulai dengan latar belakang transparan */
+        transition: background-color 0.5s ease; /* Transisi untuk latar belakang */
+      }
+      .navbar:hover {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          0.8
+        ); /* Latar belakang hitam 60% transparan saat hover */
+      }
+
+      .navbar.visible {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          8
+        ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-900" id="beranda">
+    <!-- Back to Home Button -->
+
+    <!-- Header -->
+    <!-- Navbar -->
+    <div
+      class="navbar px-4 py-3 md:py-1 fixed bg-slate-900 w-full z-999 animate__animated animate__fadeInDown"
+      id="navbar"
+    >
+      <div class="container mx-auto">
+        <div class="navbar-box flex items-center justify-between relative">
+          <div class="logo flex items-center gap-x-2">
+            <img
+              src="../assets/image/karanganyar logo.png"
+              alt="Logo Tailwind CSS"
+              class="md:w-16 object-cover w-12 hover:cursor-pointer"
+              onclick="window.location.href='../index.html'"
+            />
+            <div class="flex flex-col">
+              <h1
+                class="font-bold md:text-base text-sm text-white/90 hover:cursor-pointer hover:underline hover:decoration-1"
+                onclick="window.location.href='./tentang/profile.html'"
+              >
+                Desa Wonokeling
+              </h1>
+              <p class="text-white/90 sm:text-sm text-xs">
+                Kec.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href=" https://www.karanganyarkab.go.id/kecamatan-jatiyoso/"
+                  >Jatiyoso</a
+                >
+                ,Kab.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href="https://www.karanganyarkab.go.id/"
+                  >karanganyar</a
+                >
+              </p>
+            </div>
+          </div>
+          <ul
+            class="menu hidden md:flex gap-x-6 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            id="menu"
+          >
+            <li class="py-1.5 w-full text-center">
+              <a
+                href="../index.html#beranda"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 rounded-lg"
+                >Beranda</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownTentangButton"
+                data-dropdown-toggle="dropdownTentang"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 hover:border-teal-500 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Tentang<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <button
+                id="dropdownBeritaButton"
+                data-dropdown-toggle="dropdownBerita"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 border-b-2 border-white/90 hover:border-teal-500 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
+              >
+                Informasi<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../wisata/wisata.html"
+                class="text-white/90 hover:text-teal-500"
+                >Wisata</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index.html#galeri"
+                class="text-white/90 hover:text-teal-500"
+                >Galeri</a
+              >
+            </li>
+            <li class="py-4 w-full text-center">
+              <a
+                href="../index.html#kontak"
+                class="text-white/90 hover:text-teal-500"
+                >Kontak</a
+              >
+            </li>
+            <div class="opacity-50 text-white md:block hidden">|</div>
+            <li
+              class="py-4 w-full text-center md:py-0 border border-white/60 rounded-lg hover:border-teal-500 transition-all"
+            >
+              <form class="flex items-center gap-6 px-2">
+                <input
+                  type="text"
+                  placeholder="Cari..."
+                  class="w-full md:w-20 px-3 py-1.5 text-sm text-white focus:outline-none transition-all"
+                  butt
+                />
+                <button
+                  type="submit"
+                  class="text-white/90 hover:text-teal-500 focus:outline-none"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
+          </ul>
+          <div class="md:hidden block z-50 pt-4 pr-4">
+            <button class="hamburger hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span
+                  class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <!-- Dropdown menu -->
+    <div
+      id="dropdownTentang"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownTentangButton"
+      >
+        <li>
+          <a
+            href="../index.html#tentang"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Sekilas Desa</a
+          >
+        </li>
+        <li>
+          <button
+            id="DoubledropdownButton"
+            data-dropdown-toggle="Doubledropdown"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Profile<svg
+              class="w-2.5 h-2.5 ms-3 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 6 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 9 4-4-4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="Doubledropdown"
+            class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80"
+          >
+            <ul
+              class="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="DoubledropdownbSutton"
+            >
+              <li>
+                <a
+                  href="#beranda"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >Profile Kepala Desa</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Statistik Penduduk</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- berita -->
+    <div
+      id="dropdownBerita"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownBeritaButton"
+      >
+        <li>
+          <a
+            href="../index.html#layanan-publik"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Layanan Publik</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="../tentang/pengumuman.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Pengumuman</a
+          >
+        </li>
+        <li>
+          <a
+            href="../berita/berita.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Berita Terkini</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Menu Dropdown -->
+
+    <!-- Header -->
+    <header
+      class="relative h-[400px] flex items-center justify-center bg-cover bg-center bg-fixed"
+      style="background-image: url('../assets/image/berita.jpg')"
+    >
+      <!-- Overlay untuk membuat teks lebih mudah dibaca -->
+      <div class="absolute inset-0 bg-black/50"></div>
+      <!-- Judul di Tengah Gambar -->
+      <div class="relative z-10 text-center text-white">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 mx-auto"
+        >
+          BERITA TERKINI
+        </h1>
+        <p class="text-lg max-w-4/5 mx-auto">Update berita terbaru Desa Wonokeling</p>
+      </div>
+    </header>
+
+    <!-- Header -->
+
+    <!-- Breadcrumb -->
+    <div
+      class="container mx-auto px-5 pt-8 text-sm text-gray-600 flex items-center"
+    >
+      <div class="group">
+        <i class="fa-solid fa-house mr-0.5 group-hover:text-teal-600"></i>
+        <a href="../index.html" class="group-hover:text-teal-600">Beranda</a>
+      </div>
+      <span class="mx-2">/</span>
+      <a href="#beranda" class="font-semibold text-gray-900">Berita Terkini</a>
+    </div>
+
+    <!-- Main Content -->
+    <section>
+      <div
+        class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"
+      >
+        <!-- Berita 1 -->
+        <div class="grid grid-cols-1 gap-y-8">
+          <div
+            class="p-4 shadow-2xl rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div>
+              <img
+                src="../assets/image/longsor.jpg"
+                alt="post-img"
+                class="w-full h-[310px] object-cover object-center rounded-lg"
+              />
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold uppercase text-op mt-2.5">
+                Bencana
+              </h2>
+              <a
+                href="./post1.html"
+                class="font-semibold text-2xl text-gray-900 block mt-1.5 line-clamp-2"
+              >
+                Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1
+                Perempuan
+              </a>
+              <span class="mt-2.5 block text-gray-800">6 Des 2022</span>
+              <p class="mt-2.5 text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
+                optio sunt eum quo voluptates eos temporibus aliquid magnam
+                corrupti rerum quos perspiciatis aspernatur dolores quidem,
+                quasi pariatur. Tenetur, deserunt esse.
+              </p>
+              <!-- Profile -->
+              <div class="flex mt-3">
+                <img
+                  src="../assets/icon/user.png"
+                  alt=""
+                  class="w-6 mr-3 bg-op rounded-full pt-0.5"
+                />
+                <span class="text-base text-center text-gray-800"
+                  >Daniel Ari Purnomo</span
+                >
+              </div>
+              <div class="mt-4">
+                <a
+                  href="./post1.html"
+                  class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
+                  title="read more"
+                >
+                  Read More »
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Berita 2 -->
+          <div
+            class="p-4 shadow-2xl rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div>
+              <img
+                src="https://picsum.photos/800/600"
+                alt="post-img"
+                class="w-full h-[310px] object-cover object-center rounded-lg"
+              />
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold uppercase text-op mt-2.5">
+                Bencana
+              </h2>
+              <a
+                href="post-page.html"
+                class="font-semibold text-2xl text-gray-900 block mt-1.5 line-clamp-2"
+              >
+                Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1
+                Perempuan
+              </a>
+              <span class="mt-2.5 block text-gray-800">6 Des 2022</span>
+              <p class="mt-2.5 text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
+                optio sunt eum quo voluptates eos temporibus aliquid magnam
+                corrupti rerum quos perspiciatis aspernatur dolores quidem,
+                quasi pariatur. Tenetur, deserunt esse.
+              </p>
+              <!-- Profile -->
+              <div class="flex mt-3">
+                <img
+                  src="../assets/icon/user.png"
+                  alt=""
+                  class="w-6 mr-3 bg-op rounded-full pt-0.5"
+                />
+                <span class="text-base text-center text-gray-800"
+                  >Daniel Ari Purnomo</span
+                >
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
+                  title="read more"
+                >
+                  Read More »
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- berita 3 -->
+          <div
+            class="p-4 shadow-2xl rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div>
+              <img
+                src="https://picsum.photos/801/601"
+                alt="post-img"
+                class="w-full h-[310px] object-cover object-center rounded-lg"
+              />
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold uppercase text-op mt-2.5">
+                Bencana
+              </h2>
+              <a
+                href="post-page.html"
+                class="font-semibold text-2xl text-gray-900 block mt-1.5 line-clamp-2"
+              >
+                Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1
+                Perempuan
+              </a>
+              <span class="mt-2.5 block text-gray-800">6 Des 2022</span>
+              <p class="mt-2.5 text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
+                optio sunt eum quo voluptates eos temporibus aliquid magnam
+                corrupti rerum quos perspiciatis aspernatur dolores quidem,
+                quasi pariatur. Tenetur, deserunt esse.
+              </p>
+              <!-- Profile -->
+              <div class="flex mt-3">
+                <img
+                  src="../assets/icon/user.png"
+                  alt=""
+                  class="w-6 mr-3 bg-op rounded-full pt-0.5"
+                />
+                <span class="text-base text-center text-gray-800"
+                  >Daniel Ari Purnomo</span
+                >
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
+                  title="read more"
+                >
+                  Read More »
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Berita 4 -->
+          <div
+            class="p-4 shadow-2xl rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div>
+              <img
+                src="https://picsum.photos/802/602"
+                alt="post-img"
+                class="w-full h-[310px] object-cover object-center rounded-lg"
+              />
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold uppercase text-op mt-2.5">
+                Bencana
+              </h2>
+              <a
+                href="post-page.html"
+                class="font-semibold text-2xl text-gray-900 block mt-1.5 line-clamp-2"
+              >
+                Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1
+                Perempuan
+              </a>
+              <span class="mt-2.5 block text-gray-800">6 Des 2022</span>
+              <p class="mt-2.5 text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
+                optio sunt eum quo voluptates eos temporibus aliquid magnam
+                corrupti rerum quos perspiciatis aspernatur dolores quidem,
+                quasi pariatur. Tenetur, deserunt esse.
+              </p>
+              <!-- Profile -->
+              <div class="flex mt-3">
+                <img
+                  src="../assets/icon/user.png"
+                  alt=""
+                  class="w-6 mr-3 bg-op rounded-full pt-0.5"
+                />
+                <span class="text-base text-center text-gray-800"
+                  >Daniel Ari Purnomo</span
+                >
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
+                  title="read more"
+                >
+                  Read More »
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Berita 4 -->
+          <div
+            class="p-4 shadow-2xl rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div>
+              <img
+                src="https://picsum.photos/803/603"
+                alt="post-img"
+                class="w-full h-[310px] object-cover object-center rounded-lg"
+              />
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold uppercase text-op mt-2.5">
+                Bencana
+              </h2>
+              <a
+                href="post-page.html"
+                class="font-semibold text-2xl text-gray-900 block mt-1.5 line-clamp-2"
+              >
+                Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1
+                Perempuan
+              </a>
+              <span class="mt-2.5 block text-gray-800">6 Des 2022</span>
+              <p class="mt-2.5 text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
+                optio sunt eum quo voluptates eos temporibus aliquid magnam
+                corrupti rerum quos perspiciatis aspernatur dolores quidem,
+                quasi pariatur. Tenetur, deserunt esse.
+              </p>
+              <!-- Profile -->
+              <div class="flex mt-3">
+                <img
+                  src="../assets/icon/user.png"
+                  alt=""
+                  class="w-6 mr-3 bg-op rounded-full pt-0.5"
+                />
+                <span class="text-base text-center text-gray-800"
+                  >Daniel Ari Purnomo</span
+                >
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
+                  title="read more"
+                >
+                  Read More »
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Berita 5 -->
+          <div
+            class="p-4 shadow-2xl rounded-lg grid grid-cols-1 sm:grid-cols-2 gap-8"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
+            <div>
+              <img
+                src="https://picsum.photos/804/604"
+                alt="post-img"
+                class="w-full h-[310px] object-cover object-center rounded-lg"
+              />
+            </div>
+            <div>
+              <h2 class="text-sm font-semibold uppercase text-op mt-2.5">
+                Bencana
+              </h2>
+              <a
+                href="post-page.html"
+                class="font-semibold text-2xl text-gray-900 block mt-1.5 line-clamp-2"
+              >
+                Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1
+                Perempuan
+              </a>
+              <span class="mt-2.5 block text-gray-800">6 Des 2022</span>
+              <p class="mt-2.5 text-gray-800 line-clamp-3">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore
+                optio sunt eum quo voluptates eos temporibus aliquid magnam
+                corrupti rerum quos perspiciatis aspernatur dolores quidem,
+                quasi pariatur. Tenetur, deserunt esse.
+              </p>
+              <!-- Profile -->
+              <div class="flex mt-3">
+                <img
+                  src="../assets/icon/user.png"
+                  alt=""
+                  class="w-6 mr-3 bg-op rounded-full pt-0.5"
+                />
+                <span class="text-base text-center text-gray-800"
+                  >Daniel Ari Purnomo</span
+                >
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
+                  title="read more"
+                >
+                  Read More »
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content -->
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-6 py-4">
+        <p class="text-center text-gray-700">
+          &copy; 2025 Desa Wonokeling. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <!-- Navbar Muncul -->
+    <!-- JS -->
+    <script src="../../src/dist/js/script.js"></script>
+    <script>
+      // Ambil elemen navbar
+      const navbar = document.getElementById("navbar");
+
+      // Fungsi untuk mengubah opacity navbar
+      function handleScroll() {
+        // Cek posisi scroll
+        if (window.scrollY > 200) {
+          // Ganti 50 dengan nilai yang sesuai
+          navbar.classList.add("visible"); // Tambahkan kelas visible
+        } else {
+          navbar.classList.remove("visible"); // Hapus kelas visible
+        }
+      }
+
+      // Tambahkan event listener untuk scroll
+      window.addEventListener("scroll", handleScroll);
+    </script>
+    <!-- Selamat datang -->
+  </body>
+</html>

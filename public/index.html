@@ -123,18 +123,18 @@
       }
       .navbar:hover {
         background-color: rgba(
-          0,
-          0,
-          0,
-          0.6
+          15,
+          23,
+          42,
+          0.8
         ); /* Latar belakang hitam 60% transparan saat hover */
       }
 
       .navbar.visible {
         background-color: rgba(
-          0,
-          0,
-          0,
+          15,
+          23,
+          42,
           8
         ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
       }
@@ -164,10 +164,10 @@
       }
     </style>
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <!-- Navbar -->
     <div
-      class="navbar px-4 py-1 fixed bg-gray-900 w-full z-1000 animate__animated animate__fadeInDown"
+      class="navbar px-4 py-1 fixed bg-slate-900 w-full z-1000 animate__animated animate__fadeInDown"
       id="navbar"
     >
       <div class="container mx-auto">
@@ -176,25 +176,40 @@
             <img
               src="assets/image/karanganyar logo.png"
               alt="Logo Tailwind CSS"
-              class="md:w-16 object-cover w-12"
+              class="md:w-16 object-cover w-12 hover:cursor-pointer"
+              onclick="window.location.href='#beranda'"
             />
             <div class="flex flex-col">
-              <h1 class="font-bold md:text-base text-sm text-white">
+              <h1
+                class="font-bold md:text-base text-sm text-white/90 hover:cursor-pointer hover:underline hover:decoration-1"
+                onclick="window.location.href='./tentang/profile.html'"
+              >
                 Desa Wonokeling
               </h1>
-              <p class="text-gray-100 sm:text-sm text-xs">
-                Kec. Jatiyoso, Kab. karanganyar
+              <p class="text-white/90 sm:text-sm text-xs">
+                Kec.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href=" https://www.karanganyarkab.go.id/kecamatan-jatiyoso/"
+                  >Jatiyoso</a
+                >
+                ,Kab.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href="https://www.karanganyarkab.go.id/"
+                  >karanganyar</a
+                >
               </p>
             </div>
           </div>
           <ul
-            class="menu hidden md:flex gap-x-7 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            class="menu hidden md:flex gap-x-6 p-3 md:p-0 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
             id="menu"
           >
             <li class="py-1.5 w-full text-center">
               <a
                 href="#beranda"
-                class="text-white hover:text-teal-500 px-4 py-2.5 border-b-3 border-white hover:border-teal-500 rounded-lg"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 border-b-2 border-white/90 hover:border-teal-500 rounded-lg"
                 >Beranda</a
               >
             </li>
@@ -204,7 +219,7 @@
                 data-dropdown-toggle="dropdownTentang"
                 data-dropdown-trigger="hover"
                 data-dropdown-delay="500"
-                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
                 type="button"
               >
                 Tentang<svg
@@ -230,7 +245,7 @@
                 data-dropdown-toggle="dropdownBerita"
                 data-dropdown-trigger="hover"
                 data-dropdown-delay="500"
-                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
                 type="button"
               >
                 Informasi<svg
@@ -251,24 +266,43 @@
               </button>
             </li>
             <li class="py-4 w-full text-center">
-              <a href="#wisata" class="text-white hover:text-teal-500"
+              <a
+                href="./wisata/wisata.html"
+                class="text-white/90 hover:text-teal-500"
                 >Wisata</a
               >
             </li>
             <li class="py-4 w-full text-center">
-              <a href="#galeri" class="text-white hover:text-teal-500"
+              <a
+                href="./galeri/galeri.html"
+                class="text-white/90 hover:text-teal-500"
                 >Galeri</a
               >
             </li>
             <li class="py-4 w-full text-center">
-              <a href="#kontak" class="text-white hover:text-teal-500"
+              <a href="#kontak" class="text-white/90 hover:text-teal-500"
                 >Kontak</a
               >
             </li>
             <div class="opacity-50 text-white md:block hidden">|</div>
-            <i
-              class="text-white fa-brands fa-github text-4xl md:block hidden md:opacity-100 opacity-0 cursor-pointer hover:text-teal-600 mx-auto"
-            ></i>
+            <li
+              class="mx-auto w-3/4 md:w-full text-center border border-white/60 rounded-lg hover:border-teal-500 transition-all"
+            >
+              <form class="flex items-center gap-6 px-2">
+                <input
+                  type="text"
+                  placeholder="Cari..."
+                  class="w-full md:w-20 px-3 py-1.5 text-sm text-white focus:outline-none transition-all"
+                  butt
+                />
+                <button
+                  type="submit"
+                  class="text-white/90 hover:text-teal-500 focus:outline-none"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
           </ul>
           <div class="md:hidden block z-50">
             <button class="hamburger hamburger--collapse" type="button">
@@ -290,7 +324,7 @@
 
     <div
       id="dropdownTentang"
-      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80 mt-10 transform translate-y-3"
     >
       <ul
         class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -329,7 +363,7 @@
           </button>
           <div
             id="Doubledropdown"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80"
           >
             <ul
               class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -356,7 +390,6 @@
           <a
             href="https://karanganyarkab.bps.go.id/id/statistics-table/2/MjM4IzI=/jumlah-penduduk-menurut-jenis-kelamin-dan-desa-di-kecamatan-jatiyoso.html"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            target="_blank"
             >Statistik Penduduk</a
           >
         </li>
@@ -373,7 +406,7 @@
     <!-- berita -->
     <div
       id="dropdownBerita"
-      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80 mt-10 transform translate-y-3"
     >
       <ul
         class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -392,13 +425,12 @@
           <a
             href="./tentang/pengumuman.html"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            target="_blank"
             >Pengumuman</a
           >
         </li>
         <li>
           <a
-            href="#berita"
+            href="./berita/berita.html"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >Berita Terkini</a
           >
@@ -409,7 +441,7 @@
 
     <!-- Slider -->
     <div
-      class="slider-container w-full h-screen relative group-[]:"
+      class="slider-container w-full h-screen relative group-[]: overflow-hidden"
       id="beranda"
       data-carousel="static"
     >
@@ -419,6 +451,7 @@
           class="bg-fixed relative flex items-center bg-center bg-no-repeat h-full w-full bg-cover z-0 swiper-slide"
           data-carousel-item
         >
+          <!-- <img src="../" class="absolute inset-0 w-full h-full object-cover z-0" alt=""> -->
           <video
             class="absolute inset-0 w-full h-full object-cover z-0"
             autoplay
@@ -460,7 +493,7 @@
         </div>
         <div
           class="slider-item grayscale-[40%] flex items-center bg-center bg-no-repeat h-screen w-full bg-cover z-0 swiper-slide"
-          style="background-image: url('./assets/image/img-6.jpg')"
+          style="background-image: url('./assets/image/img-7.jpg')"
           data-carousel-item
         >
           <div
@@ -757,7 +790,7 @@
             data-aos="flip-left"
             data-aos-duration="2000"
             data-aos-delay="200"
-            onclick="window.location.href='#galeri'"
+            onclick="window.location.href='./galeri/galeri.html'"
           >
             <div class="box pt-12 group">
               <img
@@ -782,7 +815,7 @@
             data-aos="flip-left"
             data-aos-duration="2000"
             data-aos-delay="200"
-            onclick="window.location.href='#wisata'"
+            onclick="window.location.href='./wisata/wisata.html'"
           >
             <div class="box pt-12 group">
               <img
@@ -1133,7 +1166,7 @@
                 </div>
                 <div
                   class="flex flex-1 flex-col ml-2"
-                  onclick="window.location.href='#berita'"
+                  onclick="window.location.href='./berita/berita.html'"
                 >
                   <h1
                     class="font-bold text-gray-900 group-hover:text-[#ffa600] transition ease-in-out duration-300 self-start tracking-widest"
@@ -1261,7 +1294,7 @@
     <!-- Layanan Publik -->
 
     <!-- Destinasi -->
-    <div class="destinasi md:pb-18 pb-12 md:mt-18 mt-12" id="wisata">
+    <div class="destinasi md:pb-14 pb-10 md:mt-18 mt-12" id="wisata">
       <div class="mx-auto container p-2">
         <div class="destinasi-header w-full text-center">
           <h1
@@ -1291,6 +1324,7 @@
               >
                 <h1
                   class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
+                  onclick="window.location.href='./wisata/wisata3.html'"
                 >
                   Candi Muncar
                 </h1>
@@ -1303,9 +1337,8 @@
                 </p>
                 <div class="div items-center flex justify-center">
                   <a
-                    href="#"
+                    href="./wisata/wisata3.html"
                     class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     Selengkapnya-> <i class="fa-solid ml-1"></i>
@@ -1333,6 +1366,7 @@
               >
                 <h1
                   class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer transition ease-in-out divide-neutral-500"
+                  onclick="window.location.href='./wisata/wisata3.html'"
                 >
                   Tegal Simbah
                 </h1>
@@ -1345,9 +1379,8 @@
                 </p>
                 <div class="div items-center flex justify-center">
                   <a
-                    href="#"
+                    href="./wisata/wisata3.html"
                     class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     Selengkapnya-> <i class="fa-solid ml-1"></i>
@@ -1372,6 +1405,7 @@
               >
                 <h1
                   class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
+                  onclick="window.location.href='./wisata/wisata3.html'"
                 >
                   Banyu Anyep Cafe
                 </h1>
@@ -1386,9 +1420,8 @@
                 </p>
                 <div class="div items-center flex justify-center">
                   <a
-                    href="#"
+                    href="./wisata/wisata3.html"
                     class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     Selengkapnya->
@@ -1417,7 +1450,7 @@
     <!-- Destinasi -->
 
     <!-- Pengumuman -->
-    <div class="pengumuman md:block hidden py-32">
+    <div class="pengumuman md:block hidden md:pb-32 pb-16">
       <div
         class="container mx-auto p-12 bg-gray-100 rounded-2xl shadow-2xl max-w-6xl"
       >
@@ -1442,19 +1475,24 @@
           </div>
           <div
             class="container flex flex-row flex-nowrap justify-center gap-y-3 mt-8 grow-0"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="300"
           >
             <input type="radio" name="slide" id="c1" class="hidden" checked />
             <label
               for="c1"
               class="peng-card flex md:w-[600px]"
-              style="background-image: url('https://picsum.photos/700/400')"
+              style="background-image: url('./assets/image/jalan.jpg')"
             >
               <div class="row flex-shrink-0 flex-nowrap flex items-end">
                 <div class="peng-icon">1</div>
                 <div class="peng-description translate-y-0 pb-4">
-                  <h4 class="peng-title">Winter</h4>
+                  <a href="./tentang/pengumuman1.html" class="peng-title"
+                    >Musyawarah Pembangunan Jalan Desa</a
+                  >
                   <p class="pt-1 text-gray-100">
-                    Winter has so much to offer - creative activities
+                    Seluruh warga diundang menghadiri musyawarah pembangunan
                   </p>
                 </div>
               </div>
@@ -1463,12 +1501,14 @@
             <label
               for="c2"
               class="peng-card"
-              style="background-image: url('https://picsum.photos/600/400')"
+              style="background-image: url('./assets/image/posyandu.jpg')"
             >
               <div class="row flex-shrink-0 flex flex-nowrap items-end">
                 <div class="peng-icon">2</div>
                 <div class="peng-description">
-                  <h4 class="peng-title">Digital Technology</h4>
+                  <a href="./tentang/pengumuman1.html" class="peng-title"
+                    >Posyandu Gratis Bulan Maret</a
+                  >
                   <p class="pt-1 text-gray-100">
                     Gets better every day - stay tuned
                   </p>
@@ -1479,16 +1519,19 @@
             <label
               for="c3"
               class="peng-card"
-              style="background-image: url('https://picsum.photos/650/400')"
+              style="background-image: url('./assets/image/padi.jpg')"
             >
               <div
                 class="row flex-shrink-0 text-white flex flex-nowrap items-end"
               >
                 <div class="peng-icon">3</div>
                 <div class="peng-description">
-                  <h4 class="peng-title">Globalization</h4>
+                  <a href="./tentang/pengumuman1.html" class="peng-title">
+                    Pendaftaran Bantuan Bibit Padi Unggul
+                  </a>
                   <p class="pt-1 text-gray-100">
-                    Help people all over the world
+                    Pemerintah desa membuka pendaftaran bantuan bibit padi
+                    varietas
                   </p>
                 </div>
               </div>
@@ -1516,10 +1559,9 @@
         <!-- button -->
         <a
           href="./tentang/pengumuman.html"
-          class="sm:w-48 sm:h-12 w-44 h-10 bg-gray-100 mt-8 rounded-lg font-bold text-gray-800 hover:text-mb hover:underline hover:decoration-1 hover:decoration-mb flex items-center justify-center mx-auto transition-colors duration-500 ease-in-out"
+          class="sm:w-48 sm:h-12 w-44 h-10 mt-8 rounded-lg font-bold text-gray-800 hover:text-mb hover:underline hover:decoration-1 hover:decoration-mb flex items-center justify-center mx-auto transition-colors duration-500 ease-in-out"
           data-aos="fade-up"
           data-aos-duration="1000"
-          target="_blank"
           rel="noopener noreferrer"
         >
           Pengumuman Lainnya ->
@@ -1576,7 +1618,7 @@
             </p>
           </div>
           <a
-            href="#"
+            href="./berita/berita.html"
             class="self-center items-center xs:block hidden rounded-lg border h-12 bg-white dark:bg-gray-700 dark:border-none text-center text-sm font-semibold text-gray-500 dark:text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 hover:text-gray-700 focus-visible:ring active:bg-gray-200 px-8 py-3 md:text-base"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -1604,7 +1646,7 @@
             class="post-img"
           />
           <h2 class="post-category">Bencana</h2>
-          <a href="post-page.html" class="post-title line-clamp-2">
+          <a href="./berita/post1.html" class="post-title line-clamp-2">
             Bencana Longsor maut di Balai Desa Wonokeling Tewaskan 1 Perempuan
           </a>
           <span class="post-date">6 Des 2022</span>
@@ -1629,7 +1671,7 @@
         >
           <img src="./assets/image/guru.jpg" alt="post-img" class="post-img" />
           <h2 class="post-category">Pendidikan</h2>
-          <a href="post-page.html" class="post-title line-clamp-2">
+          <a href="./berita/post1.html" class="post-title line-clamp-2">
             Guru SD Wonokeling Diduga Langgar Netralitas ASN, Bawaslu Serahkan
             Kasus ke BKN
           </a>
@@ -1657,7 +1699,7 @@
         >
           <img src="./assets/image/kkn.jpeg" alt="post-img" class="post-img" />
           <h2 class="post-category">Pendidikan</h2>
-          <a href="post-page.html" class="post-title line-clamp-2">
+          <a href="./berita/post1.html" class="post-title line-clamp-2">
             Kelompok 90 KKN MAs Siap Beraksi di Desa Wonokeling, Jatiyoso
           </a>
           <span class="post-date">1 Agu 2024</span>
@@ -1716,7 +1758,7 @@
             class="post-img"
           />
           <h2 class="post-category">Adat dan Budaya</h2>
-          <a href="post-page.html" class="post-title line-clamp-2">
+          <a href="./berita/post1.html" class="post-title line-clamp-2">
             Sartono Ajak Warga Pertahankan Budaya Lewat ‘Bersih Dusun’
           </a>
           <span class="post-date">3 Mar 2024</span>
@@ -1741,7 +1783,7 @@
         >
           <img src="./assets/image/17san.jpg" alt="post-img" class="post-img" />
           <h2 class="post-category">Acara dan Festival</h2>
-          <a href="post-page.html" class="post-title line-clamp-2">
+          <a href="./berita/post1.html" class="post-title line-clamp-2">
             Semarak kemerdekaan di dusun Ngesep Lor
           </a>
           <span class="post-date">25 Agu 2024</span>
@@ -1834,7 +1876,7 @@
                 </div>
 
                 <a
-                  href="#"
+                  href="./galeri/galeri.html"
                   class="inline-block rounded-lg border bg-white dark:bg-gray-700 dark:border-none px-4 py-2 text-center text-sm font-semibold text-gray-500 dark:text-gray-200 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-100 hover:text-gray-700 focus-visible:ring active:bg-gray-200 md:px-8 md:py-3 md:text-base"
                   data-aos="fade-up"
                   data-aos-duration="1000"
@@ -2334,7 +2376,7 @@
     <a href="#home">
       <i
         id="scrollTopBtn"
-        class="fa-solid fa-circle-arrow-up fixed bottom-10 right-10 text-5xl text-teal-500 cursor-pointer hover:text-teal-600 z-20"
+        class="fa-solid fa-circle-arrow-up fixed bottom-5 right-5 md:bottom-10 md:right-10 text-3xl md:text-5xl text-teal-500/60 cursor-pointer hover:text-teal-600 z-20"
         title="Kembali ke Atas"
         onclick="window.scrollTo({top:0, behavior:'smooth'})"
       ></i>
@@ -2366,8 +2408,16 @@
         // Opsi konfigurasi
         direction: "horizontal", // Arah slide
         loop: true, // Loop slide
+        slidesPerView: 1,
+        noSwiping: true,
+        preventInteractionOnTransition: true,
         autoplay: {
           delay: 60000, // Otomatis geser setiap 3 detik
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true, // Sembunyikan scrollbar
+          draggable: false, // Nonaktifkan drag
         },
 
         pagination: {

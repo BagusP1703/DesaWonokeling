@@ -4,29 +4,101 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../src/dist/css/output.css" rel="stylesheet" />
+    <!-- Jonsuh -->
+    <link rel="stylesheet" href="../src/dist/css/hamburgers.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap"
       rel="stylesheet"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
 
     <title>Blog Post</title>
 
     <style>
-      .navbar:hover {
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        transition: transform 0.15s ease;
+      }
+
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        content: "";
+        display: block;
+      }
+
+      .hamburger-inner::before {
+        top: -10px;
+      }
+
+      .hamburger-inner::after {
+        bottom: -10px;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner {
+        transform: rotate(45deg);
+        background-color: #ffffff;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::before {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        top: 0;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::after {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        bottom: 0;
+      }
+      .navbar {
         background-color: rgba(
           0,
           0,
           0,
-          1
+          0
+        ); /* Mulai dengan latar belakang transparan */
+        transition: background-color 0.5s ease; /* Transisi untuk latar belakang */
+      }
+      .navbar:hover {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          0.8
         ); /* Latar belakang hitam 60% transparan saat hover */
       }
 
       .navbar.visible {
         background-color: rgba(
-          0,
-          0,
-          0,
-          1
+          15,
+          23,
+          42,
+          8
         ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
       }
       html {
@@ -35,39 +107,52 @@
     </style>
   </head>
   <body class="bg-gray-100 text-gray-900" id="beranda">
-    <!-- Back to Home Button -->
-
     <!-- Header -->
     <!-- Navbar -->
     <div
-      class="navbar px-4 fixed bg-black/0 w-full z-40 top-0 h-[80px] content-center transition duration-500 ease-in-out"
+      class="navbar px-4 py-3 md:py-1 fixed bg-slate-900 w-full z-999 animate__animated animate__fadeInDown"
       id="navbar"
     >
-      <div class="container mx-auto justify-center">
+      <div class="container mx-auto">
         <div class="navbar-box flex items-center justify-between relative">
           <div class="logo flex items-center gap-x-2">
             <img
               src="../assets/image/karanganyar logo.png"
               alt="Logo Tailwind CSS"
-              class="md:w-16 object-cover w-12"
+              class="md:w-16 object-cover w-12 hover:cursor-pointer"
+              onclick="window.location.href='../index.html'"
             />
             <div class="flex flex-col">
-              <h1 class="font-bold md:text-base text-sm text-white">
+              <h1
+                class="font-bold md:text-base text-sm text-white/90 hover:cursor-pointer hover:underline hover:decoration-1"
+                onclick="window.location.href='../tentang/profile.html'"
+              >
                 Desa Wonokeling
               </h1>
-              <p class="text-gray-100 sm:text-sm text-xs">
-                Kec. Jatiyoso, Kab. karanganyar
+              <p class="text-white/90 sm:text-sm text-xs">
+                Kec.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href=" https://www.karanganyarkab.go.id/kecamatan-jatiyoso/"
+                  >Jatiyoso</a
+                >
+                ,Kab.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href="https://www.karanganyarkab.go.id/"
+                  >karanganyar</a
+                >
               </p>
             </div>
           </div>
           <ul
-            class="menu hidden md:flex gap-x-7 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            class="menu hidden md:flex gap-x-6 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-gray-900/60 w-full md:bg-transparent md:w-auto"
             id="menu"
           >
-            <li class="py-4 w-full text-center">
+            <li class="py-1.5 w-full text-center">
               <a
-                href="../index - Copy.html"
-                class="text-white hover:text-teal-500"
+                href="../index.html#beranda"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 hover:border-teal-500 rounded-lg"
                 >Beranda</a
               >
             </li>
@@ -77,7 +162,7 @@
                 data-dropdown-toggle="dropdownTentang"
                 data-dropdown-trigger="hover"
                 data-dropdown-delay="500"
-                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-5 py-2.5 text-center inline-flex items-center"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
                 type="button"
               >
                 Tentang<svg
@@ -98,40 +183,73 @@
               </button>
             </li>
             <li class="py-4 w-full text-center">
-              <a
-                href="../index - Copy.html#berita"
-                class="text-white hover:text-teal-500"
-                >Berita</a
+              <button
+                id="dropdownBeritaButton"
+                data-dropdown-toggle="dropdownBerita"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
               >
+                Informasi<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
             </li>
             <li class="py-4 w-full text-center">
               <a
-                href="../index - Copy.html#wisata"
-                class="text-white hover:text-teal-500"
+                href="./wisata/wisata.html"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 border-b-2 border-white/90 hover:border-teal-500 rounded-lg"
                 >Wisata</a
               >
             </li>
             <li class="py-4 w-full text-center">
-              <a
-                href="../index - Copy.html#galeri"
-                class="text-white hover:text-teal-500"
+              <a href="#galeri" class="text-white/90 hover:text-teal-500"
                 >Galeri</a
               >
             </li>
             <li class="py-4 w-full text-center">
-              <a
-                href="../index - Copy.html#kontak"
-                class="text-white hover:text-teal-500"
+              <a href="#kontak" class="text-white/90 hover:text-teal-500"
                 >Kontak</a
               >
             </li>
             <div class="opacity-50 text-white md:block hidden">|</div>
-            <i
-              class="text-white fa-brands fa-github text-4xl md:block hidden cursor-pointer hover:text-teal-600"
-            ></i>
+            <li
+              class="py-4 w-full text-center md:py-0 border border-white/60 rounded-lg hover:border-teal-500 transition-all"
+            >
+              <form class="flex items-center gap-6 px-2">
+                <input
+                  type="text"
+                  placeholder="Cari..."
+                  class="w-full md:w-20 px-3 py-1.5 text-sm text-white focus:outline-none transition-all"
+                  butt
+                />
+                <button
+                  type="submit"
+                  class="text-white/90 hover:text-teal-500 focus:outline-none"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
           </ul>
-          <div class="md:hidden block z-50">
-            <button class="hamburger hamburger--collapse" type="button">
+          <div class="md:hidden block z-1000">
+            <button
+              class="hamburger hamburger--collapse pt-4 pr-5"
+              type="button"
+            >
               <span class="hamburger-box">
                 <span
                   class="hamburger-inner bg-teal-600 before:bg-teal-600 after:bg-teal-600"
@@ -147,7 +265,7 @@
     <!-- Dropdown menu -->
     <div
       id="dropdownTentang"
-      class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+      class="z-1000 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80 mt-10 transform translate-y-3"
     >
       <ul
         class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -155,7 +273,7 @@
       >
         <li>
           <a
-            href="../index - Copy.html#tentang"
+            href="../index.html#tentang"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >Sekilas Desa</a
           >
@@ -186,7 +304,7 @@
           </button>
           <div
             id="Doubledropdown"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80"
+            class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80"
           >
             <ul
               class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -222,6 +340,41 @@
             href="#"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >Pendidikan</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- berita -->
+    <div
+      id="dropdownBerita"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownBeritaButton"
+      >
+        <li>
+          <a
+            href="../index.html#layanan-publik"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Layanan Publik</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="../tentang/pengumuman.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Pengumuman</a
+          >
+        </li>
+        <li>
+          <a
+            href="../berita/berita.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Berita Terkini</a
           >
         </li>
       </ul>
@@ -302,10 +455,12 @@
               class="absolute inset-0 bg-black/40 flex items-center justify-center"
             >
               <div class="text-center text-white">
-                <h1 class="text-5xl font-bold mb-4 font-delicious">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 font-delicious">
                   Destinasi Wisata
                 </h1>
-                <p class="text-lg">Nikmati keindahan Alam di desa Wonokeling</p>
+                <p class="max-w-3/4 text-base md:text-lg mx-auto">
+                  Nikmati keindahan Alam di desa Wonokeling
+                </p>
               </div>
             </div>
           </div>
@@ -325,10 +480,10 @@
               class="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
               <div
-                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+                class="absolute inset-x-[15%] bottom-5 py-8 text-center text-white"
               >
                 <h5 class="text-4xl font-delicious">Candi Muncar</h5>
-                <p>
+                <p class="hidden md:block">
                   Tempat wisata Candi Muncar menyuguhkan keasrian alam yang
                   menenangkan. Udara sejuk dan segar di sekitar telaga mampu
                   mengusir rasa lelah dan penat rutinitas keseharian.
@@ -352,10 +507,10 @@
               class="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
               <div
-                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+                class="absolute inset-x-[15%] bottom-5 py-8 text-center text-white"
               >
                 <h5 class="text-4xl font-delicious">Tegal Simbah</h5>
-                <p>
+                <p class="hidden md:block">
                   Wisata yang berada di kawasan dataran tinggi Girimarto ini
                   menawarkan udara sejuk dan juga pemandangan yang cocok untuk
                   lokasi liburan keluarga,
@@ -378,10 +533,10 @@
               class="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
               <div
-                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+                class="absolute inset-x-[15%] bottom-5 py-8 text-center text-white"
               >
                 <h5 class="text-4xl font-delicious">Banyu Anyep Cafe</h5>
-                <p>
+                <p class="hidden md:block">
                   Terletak di lereng Gunung Lawu Selatan, kafe ini menawarkan
                   pemandangan perbukitan hijau dan udara pegunungan yang segar.
                   Tempat ini menjadi tempat favorit untuk berkumpul bersama
@@ -406,10 +561,10 @@
               class="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
               <div
-                class="absolute inset-x-[15%] bottom-5 hidden py-8 text-center text-white md:block"
+                class="absolute inset-x-[15%] bottom-5 py-8 text-center text-white"
               >
                 <h5 class="text-4xl font-delicious">Rumah Pohon Tugulasi</h5>
-                <p>
+                <p class="hidden md:block">
                   destinasi wisata populer yang menawarkan spot selfie menarik
                   dengan rumah pohon bambu berlatar belakang pemandangan alam
                   yang hijau. Dengan tiket masuk terjangkau, pengunjung dapat
@@ -481,19 +636,24 @@
 
     <!-- Header -->
 
-    <!-- Back to home -->
-    <div class="container mx-auto px-6 py-4 mt-[40px]">
-      <a
-        href="../index - Copy.html"
-        class="text-blue-500 hover:text-blue-700 hover:underline"
-        >← Back to Home</a
+    <!-- Breadcrumb -->
+    <div
+      class="container mx-auto px-4 pt-7 pb-8 text-sm text-gray-600 flex items-center"
+    >
+      <div class="group">
+        <i class="fa-solid fa-house mr-0.5 group-hover:text-teal-600"></i>
+        <a href="../index.html" class="group-hover:text-teal-600">Beranda</a>
+      </div>
+      <span class="mx-2">/</span>
+      <a href="../wisata/wisata.html" class="font-semibold text-gray-900"
+        >Destinasi Wisata</a
       >
     </div>
 
     <!-- Destinasi -->
     <div class="flex flex-row flex-wrap h-auto px-6">
       <div
-        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto grow p-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto py-2 px-4 flex-col group mx-auto"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
@@ -507,6 +667,7 @@
           >
             <h1
               class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
+              onclick="window.location.href='./wisata3.html'"
             >
               Candi Muncar
             </h1>
@@ -517,9 +678,9 @@
             </p>
             <div class="div items-center flex justify-center">
               <a
-                href="#"
+                href="./wisata3.html"
                 class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                target="_blank"
+               
                 rel="noopener noreferrer"
               >
                 Selengkapnya-> <i class="fa-solid ml-1"></i>
@@ -530,7 +691,7 @@
       </div>
 
       <div
-        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto grow px-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto grow py-2 px-4 flex-col group mx-auto"
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="400"
@@ -547,7 +708,8 @@
           >
             <h1
               class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer transition ease-in-out divide-neutral-500"
-            >
+              onclick="window.location.href='./wisata3.html'"
+              >
               Tegal Simbah
             </h1>
             <p class="text-center leading-normal text-gray-700 line-clamp-3">
@@ -557,9 +719,9 @@
             </p>
             <div class="div items-center flex justify-center">
               <a
-                href="#"
+                href="./wisata3.html"
                 class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                target="_blank"
+                
                 rel="noopener noreferrer"
               >
                 Selengkapnya-> <i class="fa-solid ml-1"></i>
@@ -569,7 +731,7 @@
         </div>
       </div>
       <div
-        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto px-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto py-2 px-4 flex-col group mx-auto"
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="800"
@@ -584,7 +746,8 @@
           >
             <h1
               class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
-            >
+              onclick="window.location.href='./wisata3.html'"
+              >
               Banyu Anyep Cafe
             </h1>
             <p class="text-center leading-normal text-gray-700 line-clamp-3">
@@ -595,9 +758,9 @@
             </p>
             <div class="div items-center flex justify-center">
               <a
-                href="#"
+                href="./wisata3.html"
                 class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                target="_blank"
+                
                 rel="noopener noreferrer"
               >
                 Selengkapnya-> <i class="fa-solid ml-1"></i>
@@ -607,7 +770,7 @@
         </div>
       </div>
       <div
-        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto px-6 sm:py-2 sm:px-4 flex-col group mx-auto"
+        class="box w-full xs:max-w-3/4 mb-8 sm:w-1/2 lg:w-1/3 h-auto py-2 px-4 flex-col group mx-auto"
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="800"
@@ -622,7 +785,8 @@
           >
             <h1
               class="h1 p-4 text-center font-extrabold text-2xl tracking-wide hover:text-mb hover:underline hover:decoration-2 hover:decoration-mb cursor-pointer"
-            >
+              onclick="window.location.href='./wisata3.html'"
+              >
               Runmah Pohon Tugulasi
             </h1>
             <p class="text-center leading-normal text-gray-700 line-clamp-3">
@@ -634,9 +798,9 @@
             </p>
             <div class="div items-center flex justify-center">
               <a
-                href="#"
+                href="./wisata3.html"
                 class="w-36 h-12 bg-transparent mt-10 rounded-sm font-bold text-mb hover:bg-mb hover:text-white hover:border-0 transition ease-in-out duration-300 border-2 border-mb flex items-center justify-center"
-                target="_blank"
+                
                 rel="noopener noreferrer"
               >
                 Selengkapnya-> <i class="fa-solid ml-1"></i>
@@ -656,6 +820,8 @@
         </p>
       </div>
     </footer>
+    <!-- JS -->
+    <script src="../../src/dist/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <!-- Navbar Muncul -->
     <script>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candi Muncar - Wisata Desa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50">
+    <!-- Header Navigation -->
+    <header class="bg-green-800 text-white shadow-md sticky top-0 z-10">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold flex items-center">
+                <i class="fas fa-leaf mr-2"></i>
+                <span>Desa Wisata</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-green-200 transition">Beranda</a>
+                <a href="#" class="hover:text-green-200 transition">Tentang Desa</a>
+                <a href="#" class="font-medium border-b-2 border-white">Destinasi Wisata</a>
+                <a href="#" class="hover:text-green-200 transition">Budaya</a>
+                <a href="#" class="hover:text-green-200 transition">Kontak</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-3 text-sm text-gray-600 flex items-center">
+        <a href="index.html" class="hover:text-green-700">Beranda</a>
+        <span class="mx-2">/</span>
+        <a href="#" class="hover:text-green-700">Destinasi Wisata</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-900 font-medium">Candi Muncar</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <article class="max-w-4xl mx-auto">
+            <!-- Hero Section -->
+            <div class="mb-8 rounded-xl overflow-hidden shadow-lg relative">
+                <img src="/api/placeholder/1200/600" alt="Pemandangan Candi Muncar" class="w-full h-96 object-cover" />
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                    <h1 class="text-3xl md:text-4xl font-bold text-white">Candi Muncar</h1>
+                    <p class="text-white/90 mt-2">Wisata Sejarah dengan Keindahan Alam</p>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+                <!-- Overview -->
+                <div class="flex flex-col md:flex-row gap-6 mb-8">
+                    <div class="md:w-2/3">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Selamat Datang di Candi Muncar</h2>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Candi Muncar merupakan salah satu tempat wisata bersejarah yang menawarkan keindahan arsitektur peninggalan masa lampau dipadukan dengan pemandangan alam yang menenangkan. Terletak di tengah-tengah hamparan hijau pepohonan, candi ini menjadi destinasi favorit bagi pecinta sejarah dan pengunjung yang ingin menikmati ketenangan alam.
+                        </p>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            Wisata Candi Muncar menyuguhkan keasrian alam yang menenangkan. Udara sejuk dan segar di sekitar telaga mampu mengusir rasa lelah dan penat rutinitas keseharian. Pengunjung dapat merasakan kedamaian saat berada di area candi yang dikelilingi oleh pemandangan hijau yang asri.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3">
+                        <div class="bg-green-50 rounded-lg p-5 shadow-inner">
+                            <h3 class="text-lg font-semibold text-green-800 mb-3">Informasi Kunjungan</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-clock text-green-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <span class="font-medium">Jam Buka:</span>
+                                        <p class="text-gray-600">08.00 - 17.00 WIB (Setiap Hari)</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-ticket-alt text-green-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <span class="font-medium">Tiket Masuk:</span>
+                                        <p class="text-gray-600">Rp 10.000 (Dewasa)<br>Rp 5.000 (Anak-anak)</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-green-600 mt-1 mr-3"></i>
+                                    <div>
+                                        <span class="font-medium">Lokasi:</span>
+                                        <p class="text-gray-600">Desa Muncar, Kecamatan X, Kabupaten Y</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Galeri Foto</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <img src="/api/placeholder/400/300" alt="Candi Muncar" class="rounded-lg shadow-md hover:opacity-90 transition cursor-pointer h-40 object-cover" />
+                        <img src="/api/placeholder/400/300" alt="Telaga di sekitar Candi" class="rounded-lg shadow-md hover:opacity-90 transition cursor-pointer h-40 object-cover" />
+                        <img src="/api/placeholder/400/300" alt="Relief Candi" class="rounded-lg shadow-md hover:opacity-90 transition cursor-pointer h-40 object-cover" />
+                        <img src="/api/placeholder/400/300" alt="Panorama Alam" class="rounded-lg shadow-md hover:opacity-90 transition cursor-pointer h-40 object-cover" />
+                    </div>
+                </div>
+
+                <!-- History & Description -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Sejarah Candi Muncar</h2>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Diperkirakan dibangun pada abad ke-9 Masehi, Candi Muncar merupakan salah satu peninggalan kerajaan Hindu-Budha yang ada di Nusantara. Nama "Muncar" berasal dari bahasa Jawa kuno yang berarti "memancarkan cahaya", yang dipercaya menggambarkan fungsi candi sebagai tempat pemujaan pada masa itu.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Candi ini mengalami beberapa kali pemugaran, dengan pemugaran terbesar dilakukan pada tahun 1980-an. Saat ini, Candi Muncar berdiri kokoh dengan arsitektur khas Hindu-Jawa, memperlihatkan relief-relief yang menceritakan berbagai kisah dan mitologi.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Selain struktur candi utama, kompleks Candi Muncar juga memiliki telaga alami yang menambah keindahan area sekitar. Konon, telaga ini diyakini memiliki air suci yang dipercaya dapat memberikan berkah bagi pengunjung yang membasuh wajahnya.
+                    </p>
+                </div>
+
+                <!-- What to Do -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Aktivitas yang Dapat Dilakukan</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg flex">
+                            <div class="bg-green-100 text-green-700 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Wisata Sejarah</h3>
+                                <p class="text-gray-600">Menjelajahi struktur candi dan mempelajari sejarah serta relief-reliefnya dengan bantuan pemandu wisata lokal.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg flex">
+                            <div class="bg-green-100 text-green-700 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Fotografi</h3>
+                                <p class="text-gray-600">Mengabadikan keindahan candi dan pemandangan alam sekitar yang menawarkan banyak spot instagramable.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg flex">
+                            <div class="bg-green-100 text-green-700 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-hiking"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Trekking Ringan</h3>
+                                <p class="text-gray-600">Menyusuri jalur-jalur setapak di sekitar area candi untuk menikmati udara segar dan pemandangan alam.</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg flex">
+                            <div class="bg-green-100 text-green-700 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Kuliner Lokal</h3>
+                                <p class="text-gray-600">Mencicipi berbagai makanan tradisional yang dijual oleh penduduk sekitar di area wisata.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Surrounding Attractions -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Wisata Sekitar</h2>
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:bg-gray-50 transition">
+                            <img src="/api/placeholder/200/150" alt="Desa Budaya" class="w-24 h-20 object-cover rounded mr-4" />
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Desa Budaya Tradisional</h3>
+                                <p class="text-gray-600">Hanya 2 km dari Candi Muncar, kunjungi desa budaya untuk melihat kehidupan tradisional dan kerajinan lokal.</p>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4 flex items-center hover:bg-gray-50 transition">
+                            <img src="/api/placeholder/200/150" alt="Air Terjun" class="w-24 h-20 object-cover rounded mr-4" />
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Air Terjun Sendang</h3>
+                                <p class="text-gray-600">Terletak sekitar 5 km dari Candi Muncar, air terjun ini menawarkan kesegaran dan keindahan alam yang masih alami.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Ulasan Pengunjung</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3">
+                                    <span class="font-bold">A</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Anita Wijaya</h4>
+                                    <div class="text-yellow-400 flex">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">"Tempat yang sangat menenangkan! Saya dan keluarga sangat menikmati udara sejuk dan pemandangan yang asri. Relief-relief candinya sangat menarik untuk dipelajari."</p>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3">
+                                    <span class="font-bold">B</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Budi Santoso</h4>
+                                    <div class="text-yellow-400 flex">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">"Sebagai pecinta sejarah, Candi Muncar menjadi salah satu favorit saya. Sayang fasilitas toilet masih terbatas. Tapi pemandangan dan nilai sejarahnya sangat mengagumkan!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Get There -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Cara Menuju Lokasi</h2>
+                    <div class="bg-gray-50 p-5 rounded-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-semibold text-gray-800 mb-2"><i class="fas fa-car text-green-600 mr-2"></i> Dengan Kendaraan Pribadi</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Dari pusat kota, ikuti jalan menuju arah timur. Setelah melewati jembatan utama, ambil jalur kanan dan ikuti papan petunjuk menuju Candi Muncar. Tersedia area parkir yang luas bagi pengunjung.
+                                </p>
+                                <h3 class="font-semibold text-gray-800 mb-2"><i class="fas fa-bus text-green-600 mr-2"></i> Dengan Transportasi Umum</h3>
+                                <p class="text-gray-600">
+                                    Naik bus jurusan Desa Muncar dari terminal kota. Turun di halte terdekat dengan Candi Muncar dan lanjutkan dengan ojek atau berjalan kaki sekitar 500 meter.
+                                </p>
+                            </div>
+                            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                                <img src="/api/placeholder/600/400" alt="Peta Lokasi" class="w-full h-64 object-cover" />
+                                <div class="p-3 text-center">
+                                    <a href="#" class="text-green-600 hover:text-green-800 font-medium flex items-center justify-center">
+                                        <i class="fas fa-map-marked-alt mr-2"></i> Lihat di Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips for Visitors -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Tips Kunjungan</h2>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Kunjungi pada pagi hari untuk mendapatkan suasana yang tenang dan udara yang lebih sejuk.</p>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Bawalah air minum dan makanan ringan karena pilihan warung di sekitar candi terbatas.</p>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Kenakan pakaian yang nyaman dan alas kaki yang sesuai untuk berjalan di area candi.</p>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Jaga kebersihan dan keindahan candi dengan tidak membuang sampah sembarangan.</p>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Sewa pemandu lokal untuk mendapatkan informasi sejarah dan cerita menarik tentang candi.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="bg-green-50 border border-green-100 rounded-xl p-6 text-center">
+                    <h2 class="text-2xl font-bold text-green-800 mb-3">Siap Mengunjungi Candi Muncar?</h2>
+                    <p class="text-gray-700 mb-4">Rasakan sendiri keindahan dan ketenangan Candi Muncar. Pesan tiket Anda sekarang!</p>
+                    <a href="#" class="inline-block bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-lg transition">Pesan Tiket Online</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Related Attractions -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Destinasi Wisata Lainnya</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="/api/placeholder/600/400" alt="Wisata Alam" class="w-full h-48 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Air Terjun Sendang</h3>
+                        <p class="text-gray-600 mb-4">Nikmati kesegaran air terjun alami dengan pemandangan hutan yang masih asri.</p>
+                        <a href="#" class="text-green-600 hover:text-green-800 font-medium">Selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="/api/placeholder/600/400" alt="Wisata Budaya" class="w-full h-48 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Desa Budaya Tradisional</h3>
+                        <p class="text-gray-600 mb-4">Rasakan kehidupan pedesaan dan budaya lokal yang masih terjaga kelestariannya.</p>
+                        <a href="#" class="text-green-600 hover:text-green-800 font-medium">Selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="/api/placeholder/600/400" alt="Wisata Kuliner" class="w-full h-48 object-cover" />
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg mb-2">Kampung Kuliner</h3>
+                        <p class="text-gray-600 mb-4">Jelajahi aneka ragam kuliner tradisional khas desa yang menggugah selera.</p>
+                        <a href="#" class="text-green-600 hover:text-green-800 font-medium">Selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Desa Wisata</h3>
+                    <p class="text-green-100 mb-4">Menjelajahi keindahan alam dan kekayaan budaya desa Indonesia.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-green-200"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Kontak Kami</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-300"></i>
+                            <span>Jl. Desa No. 123, Kecamatan X, Kabupaten Y</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-green-300"></i>
+                            <span>+62 123 4567 890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-green-300"></i>
+                            <span>info@desawisata.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Navigasi Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-200 transition">Beranda</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition">Tentang Desa</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition">Destinasi Wisata</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition">Event & Budaya</a></li>
+                        <li><a href="#" class="hover:text-green-200 transition">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-green-800 mt-8 pt-6 text-center text-green-200">
+                <p>&copy; 2025 Desa Wisata. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

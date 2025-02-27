@@ -4,25 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../../src/dist/css/output.css" rel="stylesheet" />
+    <!-- Font Awesome CDN -->
+    <!-- Jonsuh -->
+    <link rel="stylesheet" href="../src/dist/css/hamburgers.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>Blog Post</title>
 
     <style>
-      .navbar:hover {
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .hamburger-box {
+        width: 30px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        transition: transform 0.15s ease;
+      }
+
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        content: "";
+        display: block;
+      }
+
+      .hamburger-inner::before {
+        top: -10px;
+      }
+
+      .hamburger-inner::after {
+        bottom: -10px;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner {
+        transform: rotate(45deg);
+        background-color: #ffffff;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::before {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        top: 0;
+      }
+
+      .hamburger--collapse.is-active .hamburger-inner::after {
+        transform: rotate(90deg);
+        background-color: #ffffff;
+        bottom: 0;
+      }
+
+      .navbar {
         background-color: rgba(
           0,
           0,
           0,
-          1
+          0
+        ); /* Mulai dengan latar belakang transparan */
+        transition: background-color 0.5s ease; /* Transisi untuk latar belakang */
+      }
+      .navbar:hover {
+        background-color: rgba(
+          15,
+          23,
+          42,
+          0.8
         ); /* Latar belakang hitam 60% transparan saat hover */
       }
 
       .navbar.visible {
         background-color: rgba(
-          0,
-          0,
-          0,
-          1
+          15,
+          23,
+          42,
+          8
         ); /* Latar belakang hitam dengan opacity 0.8 ketika visible */
       }
       html {
@@ -36,34 +109,49 @@
     <!-- Header -->
     <!-- Navbar -->
     <div
-      class="navbar px-4 fixed bg-black/0 w-full z-40 top-0 h-[80px] content-center transition duration-500 ease-in-out"
+      class="navbar px-4 py-3 md:py-1 fixed bg-slate-900 w-full z-999 animate__animated animate__fadeInDown"
       id="navbar"
     >
-      <div class="container mx-auto justify-center">
+      <div class="container mx-auto">
         <div class="navbar-box flex items-center justify-between relative">
           <div class="logo flex items-center gap-x-2">
             <img
               src="../assets/image/karanganyar logo.png"
               alt="Logo Tailwind CSS"
-              class="md:w-16 object-cover w-12"
+              class="md:w-16 object-cover w-12 hover:cursor-pointer"
+              onclick="window.location.href='../index.html'"
             />
             <div class="flex flex-col">
-              <h1 class="font-bold md:text-base text-sm text-white">
+              <h1
+                class="font-bold md:text-base text-sm text-white/90 hover:cursor-pointer hover:underline hover:decoration-1"
+                onclick="window.location.href='./tentang/profile.html'"
+              >
                 Desa Wonokeling
               </h1>
-              <p class="text-gray-100 sm:text-sm text-xs">
-                Kec. Jatiyoso, Kab. karanganyar
+              <p class="text-white/90 sm:text-sm text-xs">
+                Kec.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href=" https://www.karanganyarkab.go.id/kecamatan-jatiyoso/"
+                  >Jatiyoso</a
+                >
+                ,Kab.
+                <a
+                  class="text-white/90 sm:text-sm text-xs hover:cursor-pointer hover:underline hover:decoration-1"
+                  href="https://www.karanganyarkab.go.id/"
+                  >karanganyar</a
+                >
               </p>
             </div>
           </div>
           <ul
-            class="menu hidden md:flex gap-x-7 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            class="menu hidden md:flex gap-x-6 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
             id="menu"
           >
-            <li class="py-4 w-full text-center">
+            <li class="py-1.5 w-full text-center">
               <a
-                href="../index - Copy.html"
-                class="text-white hover:text-teal-500"
+                href="../index.html"
+                class="text-white/90 hover:text-teal-500 px-4 py-2.5 rounded-lg"
                 >Beranda</a
               >
             </li>
@@ -73,7 +161,7 @@
                 data-dropdown-toggle="dropdownTentang"
                 data-dropdown-trigger="hover"
                 data-dropdown-delay="500"
-                class="text-white hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-5 py-2.5 text-center inline-flex items-center"
+                class="text-white/90 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
                 type="button"
               >
                 Tentang<svg
@@ -94,39 +182,73 @@
               </button>
             </li>
             <li class="py-4 w-full text-center">
-              <a
-                href="../index - Copy.html#berita"
-                class="text-white hover:text-teal-500"
-                >Berita</a
+              <button
+                id="dropdownBeritaButton"
+                data-dropdown-toggle="dropdownBerita"
+                data-dropdown-trigger="hover"
+                data-dropdown-delay="500"
+                class="text-white/90 border-b-2 border-white/90 hover:border-teal-500 hover:text-teal-500 hover:bg-black/30 focus:ring-2 rounded-lg px-4 py-2.5 text-center inline-flex items-center"
+                type="button"
               >
+                Informasi<svg
+                  class="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
             </li>
             <li class="py-4 w-full text-center">
               <a
-                href="../index - Copy.html#wisata"
-                class="text-white hover:text-teal-500"
+                href="../wisata/wisata.html"
+                class="text-white/90 hover:text-teal-500"
                 >Wisata</a
               >
             </li>
             <li class="py-4 w-full text-center">
               <a
-                href="../index - Copy.html#galeri"
-                class="text-white hover:text-teal-500"
+                href="../index.html#galeri"
+                class="text-white/90 hover:text-teal-500"
                 >Galeri</a
               >
             </li>
             <li class="py-4 w-full text-center">
               <a
-                href="../index - Copy.html#kontak"
-                class="text-white hover:text-teal-500"
+                href="../index.html#kontak"
+                class="text-white/90 hover:text-teal-500"
                 >Kontak</a
               >
             </li>
             <div class="opacity-50 text-white md:block hidden">|</div>
-            <i
-              class="text-white fa-brands fa-github text-4xl md:block hidden cursor-pointer hover:text-teal-600"
-            ></i>
+            <li
+              class="py-4 w-full text-center md:py-0 border border-white/60 rounded-lg hover:border-teal-500 transition-all"
+            >
+              <form class="flex items-center gap-6 px-2">
+                <input
+                  type="text"
+                  placeholder="Cari..."
+                  class="w-full md:w-20 px-3 py-1.5 text-sm text-white focus:outline-none transition-all"
+                  butt
+                />
+                <button
+                  type="submit"
+                  class="text-white/90 hover:text-teal-500 focus:outline-none"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </li>
           </ul>
-          <div class="md:hidden block z-50">
+          <div class="md:hidden block z-50 pt-5 pr-4">
             <button class="hamburger hamburger--collapse" type="button">
               <span class="hamburger-box">
                 <span
@@ -143,7 +265,7 @@
     <!-- Dropdown menu -->
     <div
       id="dropdownTentang"
-      class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80 mt-10 transform translate-y-3"
+      class="z-1000 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80 mt-10 transform translate-y-3"
     >
       <ul
         class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -151,7 +273,7 @@
       >
         <li>
           <a
-            href="../index - Copy.html#tentang"
+            href="../index.html#tentang"
             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >Sekilas Desa</a
           >
@@ -182,7 +304,7 @@
           </button>
           <div
             id="Doubledropdown"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black/80"
+            class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow-sm w-44 bg-gray-900/80"
           >
             <ul
               class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -222,6 +344,42 @@
         </li>
       </ul>
     </div>
+    <!-- berita -->
+    <div
+      id="dropdownBerita"
+      class="z-1000 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-slate-900/80 mt-10 transform translate-y-3"
+    >
+      <ul
+        class="py-2 text-sm text-gray-700 dark:text-gray-200"
+        aria-labelledby="dropdownBeritaButton"
+      >
+        <li>
+          <a
+            href="../index.html#layanan-publik"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+          >
+            Layanan Publik</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="../tentang/pengumuman.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            target="_blank"
+            >Pengumuman</a
+          >
+        </li>
+        <li>
+          <a
+            href="../berita/berita.html"
+            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+            >Berita Terkini</a
+          >
+        </li>
+      </ul>
+    </div>
+
     <!-- Menu Dropdown -->
 
     <!-- Header -->
@@ -233,20 +391,23 @@
       <div class="absolute inset-0 bg-black/50"></div>
       <!-- Judul di Tengah Gambar -->
       <div class="relative z-10 text-center text-white">
-        <h1 class="text-5xl font-bold mb-4">PENGUMUMAN</h1>
+        <h1 class="max-w-4/5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 mx-auto">PENGUMUMAN</h1>
         <p class="text-lg">Informasi resmi desa Wonokeling</p>
       </div>
     </header>
 
     <!-- Header -->
 
-    <!-- Back to home -->
-    <div class="container mx-auto px-6 py-4 mt-[40px]">
-      <a
-        href="../index - Copy.html"
-        class="text-blue-500 hover:text-blue-700 hover:underline"
-        >← Back to Home</a
-      >
+    <!-- Breadcrumb -->
+    <div
+      class="container mx-auto px-5 pt-8 text-sm text-gray-600 flex items-center"
+    >
+      <div class="group">
+        <i class="fa-solid fa-house mr-0.5 group-hover:text-teal-600"></i>
+        <a href="../index.html" class="group-hover:text-teal-600">Beranda</a>
+      </div>
+      <span class="mx-2">/</span>
+      <a href="#beranda" class="font-semibold text-gray-900">pengumuman</a>
     </div>
 
     <!-- Main Content -->
@@ -263,7 +424,8 @@
             />
 
             <h1
-              class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-gray-700 lg:text-3xl"
+              class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-gray-700 lg:text-3xl cursor-pointer hover:underline"
+              onclick="window.location.href='./pengumuman1.html'"
             >
               Musyawarah Pembangunan Jalan Desa
             </h1>
@@ -276,7 +438,7 @@
             </p>
             <div class="mt-4">
               <a
-                href="#"
+                href="./pengumuman1.html"
                 class="inline-flex items-center mt-4 font-semibold text-blue-600 lg:mb-0 hover:text-neutral-700"
                 title="read more"
               >
@@ -292,7 +454,8 @@
             />
 
             <h1
-              class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-700 lg:text-3xl"
+              class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-700 lg:text-3xl hover:underline"
+              onclick="window.location.href='./pengumuman1.html'"
             >
               Posyandu Gratis Bulan Maret
             </h1>
@@ -322,7 +485,8 @@
             />
 
             <h1
-              class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-700 lg:text-3xl"
+              class="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter text-neutral-700 lg:text-3xl hover:underline"
+              onclick="window.location.href='./pengumuman1.html'"
             >
               Pendaftaran Bantuan Bibit Padi Unggul
             </h1>
@@ -441,6 +605,8 @@
         </p>
       </div>
     </footer>
+    <!-- JS -->
+    <script src="../../src/dist/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <!-- Navbar Muncul -->
     <script>
