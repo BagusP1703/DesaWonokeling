@@ -46,11 +46,11 @@
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <!-- Swiper CSS -->
+    <!-- Swiper CSS
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    /> -->
 
     <!-- CSS -->
     <link rel="stylesheet" href="../src/dist/css/output.css" />
@@ -77,7 +77,7 @@
         width: 30px;
         height: 3px;
         background-color: white;
-        position: absolute;
+
         transition: transform 0.15s ease;
       }
 
@@ -167,7 +167,7 @@
   <body class="overflow-x-hidden">
     <!-- Navbar -->
     <div
-      class="navbar px-4 py-1 fixed bg-slate-900 w-full z-1000 animate__animated animate__fadeInDown overflow-x-hidden"
+      class="navbar px-4 top-0 left-0 right-0 py-2 md:py-1 !fixed bg-slate-900 w-full z-1000 animate__animated animate__fadeInDown"
       id="navbar"
     >
       <div class="container mx-auto">
@@ -203,7 +203,7 @@
             </div>
           </div>
           <ul
-            class="menu hidden md:flex gap-x-6 p-3 md:p-0 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
+            class="menu hidden md:flex gap-x-6 items-center font-bold md:static absolute top-15 z-1000 left-0 md:flex-row flex-col bg-black/60 w-full md:bg-transparent md:w-auto"
             id="menu"
           >
             <li class="py-1.5 w-full text-center">
@@ -440,19 +440,15 @@
     <!-- Menu Dropdown -->
 
     <!-- Slider -->
-    <div
-      class="slider-container w-full h-screen relative overflow-hidden"
-      id="beranda"
-    >
+    <div class="w-full h-screen relative overflow-hidden" id="beranda">
       <!-- Slider List Item -->
-      <div class="slider-wrapper swiper-wrapper">
+      <div class="slider-wrapper">
         <div
-          class="bg-fixed relative flex items-center bg-center bg-no-repeat h-full w-full bg-cover z-0 swiper-slide"
-          data-carousel-item
+          class="bg-fixed relative flex items-center bg-center bg-no-repeat h-full w-full bg-cover z-0"
         >
           <!-- <img src="../" class="absolute inset-0 w-full h-full object-cover z-0" alt=""> -->
           <video
-            class="absolute inset-0 w-full h-full object-cover z-0"
+            class="absolute inset-0 h-screen w-full object-cover z-0"
             autoplay
             loop
             muted
@@ -682,7 +678,7 @@
 
     <!-- Menu Header -->
     <div class="menu-header">
-      <div class="w-screen mt-2 pt-1 bg-amber-100">
+      <div class="mt-2 pt-1 bg-amber-100">
         <div class="box grid sm:grid-cols-5 grid-cols-2 md:grid-cols-7 gap-1">
           <div
             class="-mt-4 bg-gray-50 items-center flex flex-col hover:bg-white hover:z-20 hover:shadow-[0_4px_6px_rgba(0,0,0,0.5)] hover:scale-105 cursor-pointer transition ease-in-out duration-500"
@@ -864,7 +860,7 @@
     </div>
 
     <!-- Header -->
-    <div class="header min-h-screen flex items-center">
+    <div class="header min-h-screen w-full flex items-center">
       <div class="container mx-auto px-4">
         <div class="box w-ful text-center p-4 mb-10 mt-16 font-semibold">
           <h2
@@ -952,9 +948,9 @@
     <!-- Header -->
 
     <!--Tentang  -->
-    <div class="tentang py-2 my-20">
+    <div class="tentang py-2 my-20 overflow-hidden">
       <div
-        class="container mx-auto p-8 bg-gray-100 rounded-lg shadow-2xl max-w-6xl"
+        class="container mx-auto p-8 bg-gray-100 rounded-lg shadow-2xl max-w-4xl md:max-w-6xl"
       >
         <div class="tentang-box">
           <div class="box text-center">
@@ -1045,7 +1041,7 @@
     <!--Tentang  -->
 
     <!-- Layanan Publik -->
-    <div class="layanan py-12 md:py-18" id="layanan-publik">
+    <div class="layanan py-12 md:py-18 overflow-hidden" id="layanan-publik">
       <div class="container mx-auto px-4">
         <div class="layanan-box">
           <div class="box text-center">
@@ -1436,7 +1432,7 @@
             </div>
           </div>
         </div>
-        <div class="text-end">
+        <div class="text-end border-2">
           <a
             href="./wisata/wisata.html"
             class="block pb-1 text-base font-black text-mb hover:underline hover:decoration-1 hover:decoration-mb"
@@ -1629,7 +1625,7 @@
       </div>
       <!-- Post Box 1 -->
     </div>
-    <div class="px-12 xs:px-24">
+    <div class="px-12 xs:px-24 overflow-hidden">
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8"
       >
@@ -1803,7 +1799,7 @@
     <!-- Berita Terkini -->
 
     <!-- Galeri -->
-    <div class="Galeri pb-32 mt-32" id="galeri">
+    <div class="Galeri pb-32 mt-32 overflow-hidden" id="galeri">
       <div class="w-full mx-auto">
         <div class="galeri-box">
           <section
@@ -1848,7 +1844,7 @@
           <div
             class="bg-gray-900 h-auto py-6 sm:py-8 lg:py-12 shadow-2xl rounded-br-3xl"
           >
-            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <div class="mx-auto px-4 md:px-8">
               <div
                 class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12"
               >
@@ -1863,7 +1859,7 @@
                   </h2>
 
                   <p
-                    class="hidden max-w-screen-sm text-gray-200 md:block"
+                    class="hidden text-gray-200 md:block"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="300"
@@ -2086,7 +2082,7 @@
 
     <!-- Kontak -->
     <div
-      class="max-w-screen-lg mx-auto p-5 mb-16"
+      class="w-full mx-auto p-5 mb-16"
       id="kontak"
       data-aos="fade-up"
       data-aos-duration="1000"
@@ -2401,7 +2397,7 @@
 
       // swipper
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
     <!-- <script>
       var mySwiper = new Swiper(".slider-container", {
         // Opsi konfigurasi
